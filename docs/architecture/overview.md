@@ -10,7 +10,7 @@
 5. As the data makes its way to the handler, the **input hooks** (read-only middlewares) can access it and do stuff with it. But they can't modify it.
 6. The handler process the data, making use of **services** to persist it, redirect it, etc.
 7. If the handler generates a response, it goes to the **responder**. If there's no response, the process ends here.
-8. The **output hooks** can get their hands on the response and do stuff with it before it goes out, but without modifying it.
+8. The **output hooks** can get their hands on the response and do stuff with it before it goes out, but without being able to modify it.
 8. Then the responder gets the response and routes it to the right dock.
 9. The dock sends it back to the original device.
 
