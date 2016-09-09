@@ -1,0 +1,173 @@
+{
+  "toc": {
+    "sections": [
+      {
+        "title": "Iris",
+        "source": "README.md",
+        "url": "index.html",
+        "slug": "index",
+        "headings": [
+          {
+            "title": "Principles",
+            "depth": 2,
+            "id": "principles"
+          }
+        ]
+      },
+      {
+        "title": "Architecture",
+        "sections": [
+          {
+            "title": "Overview",
+            "source": "docs/architecture/overview.md",
+            "url": "architecture/overview.html",
+            "slug": "architectureoverview",
+            "headings": [
+              {
+                "title": "Logical Architecture",
+                "depth": 2,
+                "id": "logical-architecture",
+                "headings": [
+                  {
+                    "title": "Flow",
+                    "depth": 3,
+                    "id": "flow"
+                  }
+                ]
+              },
+              {
+                "title": "Physical Architecture",
+                "depth": 2,
+                "id": "physical-architecture"
+              },
+              {
+                "title": "Stack",
+                "depth": 2,
+                "id": "stack"
+              }
+            ]
+          },
+          {
+            "title": "Docks",
+            "source": "docs/architecture/docks.md",
+            "url": "architecture/docks.html",
+            "slug": "architecturedocks"
+          },
+          {
+            "title": "Dispatcher",
+            "source": "docs/architecture/dispatcher.md",
+            "url": "architecture/dispatcher.html",
+            "slug": "architecturedispatcher"
+          },
+          {
+            "title": "Hooks",
+            "source": "docs/architecture/hooks.md",
+            "url": "architecture/hooks.html",
+            "slug": "architecturehooks"
+          },
+          {
+            "title": "Handlers",
+            "source": "docs/architecture/handlers.md",
+            "url": "architecture/handlers.html",
+            "slug": "architecturehandlers"
+          },
+          {
+            "title": "Services",
+            "source": "docs/architecture/services.md",
+            "url": "architecture/services.html",
+            "slug": "architectureservices"
+          },
+          {
+            "title": "Responder",
+            "source": "docs/architecture/responder.md",
+            "url": "architecture/responder.html",
+            "slug": "architectureresponder"
+          }
+        ]
+      }
+    ]
+  },
+  "index": {
+    "index.html": {
+      "source": "README.md",
+      "title": "Iris",
+      "slug": "index",
+      "headings": [
+        {
+          "title": "Principles",
+          "depth": 2,
+          "id": "principles"
+        }
+      ]
+    },
+    "architecture/overview.html": {
+      "source": "docs/architecture/overview.md",
+      "title": "Overview",
+      "slug": "architectureoverview",
+      "headings": [
+        {
+          "title": "Logical Architecture",
+          "depth": 2,
+          "id": "logical-architecture",
+          "headings": [
+            {
+              "title": "Flow",
+              "depth": 3,
+              "id": "flow"
+            }
+          ]
+        },
+        {
+          "title": "Physical Architecture",
+          "depth": 2,
+          "id": "physical-architecture"
+        },
+        {
+          "title": "Stack",
+          "depth": 2,
+          "id": "stack"
+        }
+      ]
+    },
+    "architecture/docks.html": {
+      "source": "docs/architecture/docks.md",
+      "title": "Docks",
+      "slug": "architecturedocks"
+    },
+    "architecture/dispatcher.html": {
+      "source": "docs/architecture/dispatcher.md",
+      "title": "Dispatcher",
+      "slug": "architecturedispatcher"
+    },
+    "architecture/hooks.html": {
+      "source": "docs/architecture/hooks.md",
+      "title": "Hooks",
+      "slug": "architecturehooks"
+    },
+    "architecture/handlers.html": {
+      "source": "docs/architecture/handlers.md",
+      "title": "Handlers",
+      "slug": "architecturehandlers"
+    },
+    "architecture/services.html": {
+      "source": "docs/architecture/services.md",
+      "title": "Services",
+      "slug": "architectureservices"
+    },
+    "architecture/responder.html": {
+      "source": "docs/architecture/responder.md",
+      "title": "Responder",
+      "slug": "architectureresponder"
+    }
+  },
+  "sources": {
+    "README.md": "index.html",
+    "docs/architecture/overview.md": "architecture/overview.html",
+    "docs/architecture/docks.md": "architecture/docks.html",
+    "docs/architecture/dispatcher.md": "architecture/dispatcher.html",
+    "docs/architecture/hooks.md": "architecture/hooks.html",
+    "docs/architecture/handlers.md": "architecture/handlers.html",
+    "docs/architecture/services.md": "architecture/services.html",
+    "docs/architecture/responder.md": "architecture/responder.html"
+  }
+}

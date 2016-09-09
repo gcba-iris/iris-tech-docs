@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=a44c9e9d">
+    <script src="../assets/script.js?t=2bcc4b59"></script>
+    <title>Overview</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-architectureoverview">
+        <div class="header-nav">
+          <div class="right">
+          </div>
+        </div>
+        <div class="markdown-body"><h2 id="logical-architecture">Logical Architecture</h2>
+<p><img src="http://i.imgur.com/IczzeXv.png" alt="Logical Architecture"></p>
+<h3 id="flow">Flow</h3>
+<ol>
+<li>Data pours in from multiple sources through the <strong>docks</strong>. Each dock accounts for a single protocol, and listens in one or more ports.</li>
+<li>The dock parses the data and converts it to a standardized javascript object.</li>
+<li>The dock sends it to the <strong>dispatcher</strong>.</li>
+<li>The dispatcher looks at the header property and routes the data to the right <strong>handler</strong>.</li>
+<li>As the data makes its way to the handler, the <strong>input hooks</strong> (read-only middlewares) can access it and do stuff with it. But they can&apos;t modify it.</li>
+<li>The handler process the data, making use of <strong>services</strong> to persist it, redirect it, etc.</li>
+<li>If the handler generates a response, it goes to the <strong>responder</strong>. If there&apos;s no response, the process ends here.</li>
+<li>The <strong>output hooks</strong> can get their hands on the response and do stuff with it before it goes out, but without modifying it.</li>
+<li>Then the responder gets the response and routes it to the right dock.</li>
+<li>The dock sends it back to the original device.</li>
+</ol>
+<h4 id="headers">Headers</h4>
+<p>Each header in a raw data packet defines a <strong>data flow</strong>. And each data flow is put together by stacking components on a pipeline. It&apos;s a lot like Gulpfiles, with data flows taking the place of tasks, and components that of Gulp plugins.</p>
+<h4 id="threads">Threads</h4>
+<p>Iris must span on boot a fixed, configurable number of threads that kick in and handle the data after the dispatcher routes it. Each thread should be able to handle by itself a data flow back-to-back. This allows parallell processing and increases stability and data processing speed.</p>
+<h4 id="parsers">Parsers</h4>
+<p>While the dock base class will include a generic parser (with configurable data and header delimiters), it must be possible to pass in a custom parser function.</p>
+<h2 id="physical-architecture">Physical Architecture</h2>
+<p><img src="http://i.imgur.com/zVgfLzf.png" alt="Physical Architecture"></p>
+<p>Iris is designed to sit right in front of the data generating devices. Once the raw data has been processed, Iris can pass it on to other services.</p>
+<h2 id="stack">Stack</h2>
+<p>Iris uses no database by default, and has no UI. Regarding reverse proxies, Iris should access the system ports directly. Though it should be possible to run an array of Iris instances behind a load balancer.</p>
+<ul>
+<li>Node.js 6+</li>
+</ul>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../index.html"><span class="title">Iris</span></a></div>
+          <div class="right"><a href="../architecture/docks.html"><span class="label">Next: </span><span class="title">Docks</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="../index.html" class="link title  link-index">Iris</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a href="../architecture/overview.html" class="link title -active link-architectureoverview">Overview</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a href="#logical-architecture" class="hlink link-logical-architecture">Logical Architecture</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a href="#flow" class="hlink link-flow">Flow</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#physical-architecture" class="hlink link-physical-architecture">Physical Architecture</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#stack" class="hlink link-stack">Stack</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/docks.html" class="link title  link-architecturedocks">Docks</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/dispatcher.html" class="link title  link-architecturedispatcher">Dispatcher</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/hooks.html" class="link title  link-architecturehooks">Hooks</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/handlers.html" class="link title  link-architecturehandlers">Handlers</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/services.html" class="link title  link-architectureservices">Services</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/responder.html" class="link title  link-architectureresponder">Responder</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>
