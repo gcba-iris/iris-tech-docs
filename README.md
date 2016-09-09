@@ -25,4 +25,4 @@ Iris should support a unique data flow for each header.
 
 **5. Stability**
 
-Iris should run in multiple fail-safe threads. The failures should be handled gracefully in order maximize uptime. Also there must be a full test suite, aiming for 100% coverage.
+Iris should run in multiple fail-safe threads. The failures should be handled gracefully in order to maximize uptime. Also there must be a full test suite, aiming for 100% coverage.
