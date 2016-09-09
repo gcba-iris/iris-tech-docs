@@ -1,0 +1,23 @@
+{
+  "name": "iris-tech-docs",
+  "version": "1.0.0",
+  "description": "Iris is a modular, extensible, real-time IoT backend. It receives data from devices and pipes it through a customizable process line. Write services that run analytics, store the data, send it somewhere else, etc. Or combine a buch of existing plugins to build the ultimate data flow. Iris gives you total freedom with the peace of mind of a stable, rock solid foundation.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcba-iris/iris-tech-docs.git"
+  },
+  "keywords": [],
+  "author": "Rita Zerrizuela <zeta@widcket.com> (http://widcket.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gcba-iris/iris-tech-docs/issues"
+  },
+  "homepage": "https://github.com/gcba-iris/iris-tech-docs#readme"
+}
