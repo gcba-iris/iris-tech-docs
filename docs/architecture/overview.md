@@ -19,13 +19,15 @@
 
 Each header in a raw data packet defines a **data flow**. And each data flow is put together by stacking components on a pipeline. It's a lot like Gulpfiles, with data flows taking the place of tasks, and components that of Gulp plugins.
 
-#### Threads
-
-Iris must span on boot a fixed, configurable number of threads that kick in and handle the data after the dispatcher routes it. Each thread should be able to handle by itself a data flow back-to-back. This allows parallell processing and increases stability and data processing speed.
 
 #### Parsers
 
 While the dock base class will include a generic parser (with configurable data and header delimiters), it must be possible to pass in a custom parser function.
+
+#### Threads
+
+Iris must span on boot a fixed, configurable number of threads that kick in and handle the data after the dispatcher routes it. Each thread should be able to handle by itself a data flow back-to-back. This allows parallell processing and increases stability and data processing speed.
+
 
 ## Physical Architecture
 ![Physical Architecture](http://i.imgur.com/zVgfLzf.png)
