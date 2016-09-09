@@ -1,11 +1,12 @@
-Documentation
-=============
+Iris
+====
 
 * [Iris](../README.md)
-* [Architecture](architecture.md)
-* [Docks](docks.md)
-* [Dispatcher](dispatcher.md)
-* [Hooks](hooks.md)
-* [Handlers](handlers.md)
-* [Services](services.md)
-* [Responder](responder.md)
+* Architecture
+  * [Overview](architecture/overview.md)
+  * [Docks](architecture/docks.md)
+  * [Dispatcher](architecture/dispatcher.md)
+  * [Hooks](architecture/hooks.md)
+  * [Handlers](architecture/handlers.md)
+  * [Services](architecture/services.md)
+  * [Responder](architecture/responder.md)

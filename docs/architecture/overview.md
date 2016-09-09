@@ -1,0 +1,40 @@
+## Logical Architecture
+![Logical Architecture](http://i.imgur.com/IczzeXv.png)
+
+### Flow
+
+1. Data pours in from multiple sources through the **docks**. Each dock accounts for a single protocol, and listens in one or more ports.
+2. The dock parses the data and converts it to a standardized javascript object.
+3. The dock sends it to the **dispatcher**.
+4. The dispatcher looks at the header property and routes the data to the right **handler**.
+5. As the data makes its way to the handler, the **input hooks** (read-only middlewares) can access it and do stuff with it. But they can't modify it.
+6. The handler process the data, making use of **services** to persist it, redirect it, etc.
+7. If the handler generates a response, it goes to the **responder**. If there's no response, the process ends here.
+8. The **output hooks** can get their hands on the response and do stuff with it before it goes out, but without modifying it.
+8. Then the responder gets the response and routes it to the right dock.
+9. The dock sends it back to the original device.
+
+
+#### Headers
+
+Each header in a raw data packet defines a **data flow**. And each data flow is put together by stacking components on a pipeline. It's a lot like Gulpfiles, with data flows taking the place of tasks, and components that of Gulp plugins.
+
+#### Threads
+
+Iris must span on boot a fixed, configurable number of threads that kick in and handle the data after the dispatcher routes it. Each thread should be able to handle by itself a data flow back-to-back. This allows parallell processing and increases stability and data processing speed.
+
+#### Parsers
+
+While the dock base class will include a generic parser (with configurable data and header delimiters), it must be possible to pass in a custom parser function.
+
+## Physical Architecture
+![Physical Architecture](http://i.imgur.com/zVgfLzf.png)
+
+Iris is designed to sit right in front of the data generating devices. Once the raw data has been processed, Iris can pass it on to other services.
+
+
+## Stack
+
+Iris uses no database by default, and has no UI. Regarding reverse proxies, Iris should access the system ports directly. Though it should be possible to run an array of Iris instances behind a load balancer.
+
+- Node.js 6+
