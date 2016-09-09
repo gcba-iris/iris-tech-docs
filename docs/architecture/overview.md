@@ -3,7 +3,7 @@
 
 ### Flow
 
-1. Data pours in from multiple sources through the **docks**. Each dock accounts for a single protocol, and listens in one or more ports.
+1. Data pours in from multiple sources through the **docks**. Each dock accounts for a single protocol, and listens to one or more ports.
 2. The dock parses the data and converts it to a standardized javascript object.
 3. The dock sends it to the **dispatcher**.
 4. The dispatcher looks at the header property and routes the data to the right **handler**.
