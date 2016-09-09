@@ -34,8 +34,7 @@ Iris must span on boot a fixed, configurable number of threads that kick in and 
 
 Iris is designed to sit right in front of the data generating devices. Once the raw data has been processed, Iris can pass it on to other services.
 
-
-## Stack
+### Stack
 
 Iris uses no database by default, and has no UI. Regarding reverse proxies, Iris should access the system ports directly. Though it should be possible to run an array of Iris instances behind a load balancer.
 
