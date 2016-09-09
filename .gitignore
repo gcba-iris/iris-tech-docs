@@ -17,3 +17,5 @@ coverage.xml
 .env
 
 _docpress
+
+node_modules

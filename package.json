@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/gcba-iris/iris-tech-docs/issues"
   },
-  "homepage": "https://github.com/gcba-iris/iris-tech-docs#readme"
+  "homepage": "https://github.com/gcba-iris/iris-tech-docs#readme",
+  "dependencies": {
+    "git-update-ghpages": "^1.3.0"
+  }
 }
