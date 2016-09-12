@@ -4,7 +4,7 @@
 
 ## Description
 
-Receives the data objects from the [docks](docks.md) and routes them to the right [handlers](handlers.md). Then calls the registered [input hooks](hooks.md) for the corresponding headers. Similarly, when there's a response the dispatcher routes it to the right dock and executes the registered [output hooks](hooks.md). 
+Receives the data objects from the [docks](docks.md) and routes them to the right [handlers](handlers.md). Then calls the registered [input hooks](hooks.md) for the corresponding data headers. Similarly, when there's a response the dispatcher routes it to the right dock and executes the registered [output hooks](hooks.md). 
 
 The dispatcher is the only piece of Iris that cannot be customized or swapped off - it's the glue that holds everything together.
 
