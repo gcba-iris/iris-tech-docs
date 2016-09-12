@@ -107,12 +107,6 @@
             "source": "docs/architecture/services.md",
             "url": "architecture/services.html",
             "slug": "architectureservices"
-          },
-          {
-            "title": "Responder",
-            "source": "docs/architecture/responder.md",
-            "url": "architecture/responder.html",
-            "slug": "architectureresponder"
           }
         ]
       }
@@ -215,11 +209,6 @@
       "source": "docs/architecture/services.md",
       "title": "Services",
       "slug": "architectureservices"
-    },
-    "architecture/responder.html": {
-      "source": "docs/architecture/responder.md",
-      "title": "Responder",
-      "slug": "architectureresponder"
     }
   },
   "sources": {
@@ -229,7 +218,6 @@
     "docs/architecture/dispatcher.md": "architecture/dispatcher.html",
     "docs/architecture/hooks.md": "architecture/hooks.html",
     "docs/architecture/handlers.md": "architecture/handlers.html",
-    "docs/architecture/services.md": "architecture/services.html",
-    "docs/architecture/responder.md": "architecture/responder.html"
+    "docs/architecture/services.md": "architecture/services.html"
   }
 }

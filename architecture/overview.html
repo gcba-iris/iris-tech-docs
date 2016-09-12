@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="markdown-body"><h2 id="logical-architecture">Logical Architecture</h2>
-<p><img src="http://i.imgur.com/IczzeXv.png" alt="Logical Architecture"></p>
+<p><img src="http://i.imgur.com/lNrcZE9.png" alt="Logical Architecture"></p>
 <h3 id="flow">Flow</h3>
 <ol>
 <li>Data pours in from multiple sources through the <a href="docks.html">docks</a>. Each dock accounts for a single protocol, and listens to one or more ports.</li>
@@ -25,9 +25,9 @@
 <li>The dispatcher looks at the header property and routes the data to the right <a href="handlers.html">handler</a>.</li>
 <li>As the data makes its way to the handler, the <a href="hooks.html">input hooks</a> (read-only middlewares) can access it and do stuff with it. But they can&apos;t modify it.</li>
 <li>The handler process the data, making use of <a href="services.html">services</a> to persist it, redirect it, etc.</li>
-<li>If the handler generates a response, it goes to the <a href="responder.html">responder</a>. If there&apos;s no response, the process ends here.</li>
+<li>If the handler generates a response, it goes to the dispatcher. If there&apos;s no response, the process ends here.</li>
 <li>The <a href="hooks.html">output hooks</a> can get their hands on the response and do stuff with it before it goes out, but without being able to modify it.</li>
-<li>Then the responder gets the response and routes it to the right dock.</li>
+<li>Then the dispatcher gets the response and routes it to the right dock.</li>
 <li>The dock sends it back to the original device.</li>
 </ol>
 <h4 id="headers">Headers</h4>
@@ -83,8 +83,6 @@
                 <li class="menu-item -level-2"><a href="../architecture/handlers.html" class="link title  link-architecturehandlers">Handlers</a>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/services.html" class="link title  link-architectureservices">Services</a>
-                </li>
-                <li class="menu-item -level-2"><a href="../architecture/responder.html" class="link title  link-architectureresponder">Responder</a>
                 </li>
               </ul>
             </li>
