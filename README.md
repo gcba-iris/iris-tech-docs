@@ -13,7 +13,7 @@ Iris should be thought of as a collection of loosely coupled components implemen
 
 **2. Extensibility**
 
-The user should be able to write custom components, and/or throw in existing ones. They must all be hot swappable, with the exception of the [dispatcher](docs/architecture/dispatcher.md) and the [responder](docs/architecture/responder.md).
+The user should be able to write custom components, and/or throw in existing ones. They must all be hot swappable, with the exception of the [dispatcher](docs/architecture/dispatcher.md).
 
 **3. Statelessness**
 

@@ -1,6 +1,6 @@
 # Docks
 
-![Docks](http://i.imgur.com/QuP6i2p.png)
+![Docks](http://i.imgur.com/vpEH5Y0.png)
 
 ## Description
 

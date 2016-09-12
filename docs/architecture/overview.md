@@ -1,5 +1,5 @@
 ## Logical Architecture
-![Logical Architecture](http://i.imgur.com/IczzeXv.png)
+![Logical Architecture](http://i.imgur.com/lNrcZE9.png)
 
 ### Flow
 
@@ -9,9 +9,9 @@
 4. The dispatcher looks at the header property and routes the data to the right [handler](handlers.md).
 5. As the data makes its way to the handler, the [input hooks](hooks.md) (read-only middlewares) can access it and do stuff with it. But they can't modify it.
 6. The handler process the data, making use of [services](services.md) to persist it, redirect it, etc.
-7. If the handler generates a response, it goes to the [responder](responder.md). If there's no response, the process ends here.
+7. If the handler generates a response, it goes to the dispatcher. If there's no response, the process ends here.
 8. The [output hooks](hooks.md) can get their hands on the response and do stuff with it before it goes out, but without being able to modify it.
-8. Then the responder gets the response and routes it to the right dock.
+8. Then the dispatcher gets the response and routes it to the right dock.
 9. The dock sends it back to the original device.
 
 
