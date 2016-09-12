@@ -1,6 +1,6 @@
 # Hooks
 
-![Hooks](http://i.imgur.com/nKZL7Z1.png)
+![Hooks](http://i.imgur.com/myOoPdd.png)
 
 
 ## Description
@@ -15,8 +15,10 @@ The hooks can access the data/response objects.
 - **setup()** - Initializes the hook.
 - **run()** - Executes the hook.
 
+
 ## Events
 
 ### Emits
+
 - **onLoad:** When the hook has been loaded for the first time (initial load).
 - **onReload:** Fired when the hook has been hot reloaded.

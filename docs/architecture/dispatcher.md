@@ -4,8 +4,7 @@
 
 ## Description
 
-Receives the data objects from the docks and routes them to the right handlers. Then calls the registered input hooks for the corresponding headers.
-Similarly, when there's a response the dispatcher routes it to the right dock and executes the registered output hooks. 
+Receives the data objects from the [docks](docks.md) and routes them to the right [handlers](handlers.md). Then calls the registered [input hooks](hooks.md) for the corresponding headers. Similarly, when there's a response the dispatcher routes it to the right dock and executes the registered [output hooks](hooks.md). 
 
 The dispatcher is the only piece of Iris that cannot be customized or swapped off - it's the glue that holds everything together.
 
@@ -20,7 +19,9 @@ The dispatcher is the only piece of Iris that cannot be customized or swapped of
 ## Events
 
 ### Emits
+
+- **onData:** Triggered every time the dispatcher receives a new piece of data.
 - **onDispatch:** When a piece of data has been delivered to its handler.
-- **onRespond:** Triggred when a response has ben sent to a dock.
+- **onRespond:** Triggered when a response has ben sent to a dock.
 - **onHookRegistered:** Fired when a hook is registered for a header in an input or output flow.
 - **onHookUnregistered:** When a hook is unregistered from an input ot output flow.
