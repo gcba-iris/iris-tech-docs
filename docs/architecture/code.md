@@ -2,11 +2,11 @@
 
 The code and all related project files will be hosted in the [gcba-iris](https://github.com/gcba-iris) GitHub organization:
 
-1. **Code** 
+1. **Code**
 
     [https://github.com/gcba-iris/iris](https://github.com/gcba-iris/iris)
 
-2. **Technical Documentation** 
+2. **Technical Documentation**
 
     [https://github.com/gcba-iris/iris-tech-docs](https://github.com/gcba-iris/iris-tech-docs)
 
@@ -15,7 +15,7 @@ The javascript version used will be a subset of ES6, with only the features supp
 
 ## Conventions
 
-This project will adopt the [AirBnB javascript style guide](https://github.com/airbnb/javascript), with the following differences:
+This project will adopt the [Airbnb javascript style guide](https://github.com/airbnb/javascript), with the following differences:
 
 - Do call Object.prototype methods directly. ([3.9](https://github.com/airbnb/javascript#objects--prototype-builtins))
 - The soft tabs will be set to 4 spaces, not 2. Actual tabs are not allowed. ([18.1](https://github.com/airbnb/javascript#whitespace--spaces))

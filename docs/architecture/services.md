@@ -4,7 +4,7 @@
 
 ## Description
 
-Services encapsulate functionality that may be used by more that one [handler](handlers.md) such as a database connection, a shared object, etc. With services it's possible to extract and reuse common pieces of code, keeping the handlers lean.
+Services encapsulate functionality that may be used by more that one [handler](handlers.md) such as a database connection, a shared object, etc. With services it's possible to extract and reuse common pieces of code, keeping the handlers lean and easily maintainable.
 
 
 ## Exposed Methods
