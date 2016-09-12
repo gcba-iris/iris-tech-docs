@@ -148,7 +148,31 @@
             "title": "Handlers",
             "source": "docs/architecture/handlers.md",
             "url": "architecture/handlers.html",
-            "slug": "architecturehandlers"
+            "slug": "architecturehandlers",
+            "headings": [
+              {
+                "title": "Description",
+                "depth": 2,
+                "id": "description"
+              },
+              {
+                "title": "Exposed Methods",
+                "depth": 2,
+                "id": "exposed-methods"
+              },
+              {
+                "title": "Events",
+                "depth": 2,
+                "id": "events",
+                "headings": [
+                  {
+                    "title": "Emits",
+                    "depth": 3,
+                    "id": "emits"
+                  }
+                ]
+              }
+            ]
           },
           {
             "title": "Services",
@@ -299,7 +323,31 @@
     "architecture/handlers.html": {
       "source": "docs/architecture/handlers.md",
       "title": "Handlers",
-      "slug": "architecturehandlers"
+      "slug": "architecturehandlers",
+      "headings": [
+        {
+          "title": "Description",
+          "depth": 2,
+          "id": "description"
+        },
+        {
+          "title": "Exposed Methods",
+          "depth": 2,
+          "id": "exposed-methods"
+        },
+        {
+          "title": "Events",
+          "depth": 2,
+          "id": "events",
+          "headings": [
+            {
+              "title": "Emits",
+              "depth": 3,
+              "id": "emits"
+            }
+          ]
+        }
+      ]
     },
     "architecture/services.html": {
       "source": "docs/architecture/services.md",

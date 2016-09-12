@@ -16,6 +16,22 @@
           </div>
         </div>
         <div class="markdown-body"><h1 id="handlers">Handlers</h1>
+<p><img src="http://i.imgur.com/ihDnlyA.png" alt="Handlers"></p>
+<h2 id="description">Description</h2>
+<p>Processes the data objects sent by the <a href="dispatcher.html">dispatcher</a>. A handler can make use of various <a href="services.html">services</a> to deal with the data. It can also generate a response, which is passed back to the dispatcher. Said response is a javascript object analogous to the data object that can be serialized and sent by the respective <a href="docks.html">dock</a>. If there&apos;s no response, the data flow ends there.</p>
+<p>A handler belongs to a specific data flow, which in turn belongs to a specific header. The header is comparable to a MVC route, and the handler to a MVC controller. The data flow is akin to the request/response cycle.</p>
+<h2 id="exposed-methods">Exposed Methods</h2>
+<ul>
+<li><strong>setup()</strong> - Initializes the handler.</li>
+<li><strong>handle()</strong> - Processes the data object.</li>
+</ul>
+<h2 id="events">Events</h2>
+<h3 id="emits">Emits</h3>
+<ul>
+<li><strong>onData:</strong> Triggered every time the handler receives a new piece of data.</li>
+<li><strong>onLoad:</strong> When the handler has been loaded for the first time (initial load).</li>
+<li><strong>onReload:</strong> Fired when the handler has been hot reloaded.</li>
+</ul>
 
         </div>
         <div class="footer-nav">
@@ -39,6 +55,18 @@
                 <li class="menu-item -level-2"><a href="../architecture/hooks.html" class="link title  link-architecturehooks">Hooks</a>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/handlers.html" class="link title -active link-architecturehandlers">Handlers</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a href="#description" class="hlink link-description">Description</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#exposed-methods" class="hlink link-exposed-methods">Exposed Methods</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#events" class="hlink link-events">Events</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a href="#emits" class="hlink link-emits">Emits</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/services.html" class="link title  link-architectureservices">Services</a>
                 </li>
