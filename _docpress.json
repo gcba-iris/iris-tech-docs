@@ -11,6 +11,11 @@
             "title": "Principles",
             "depth": 2,
             "id": "principles"
+          },
+          {
+            "title": "License",
+            "depth": 2,
+            "id": "license"
           }
         ]
       },
@@ -201,6 +206,24 @@
                 "id": "configuration"
               }
             ]
+          },
+          {
+            "title": "Code",
+            "source": "docs/architecture/code.md",
+            "url": "architecture/code.html",
+            "slug": "architecturecode",
+            "headings": [
+              {
+                "title": "Conventions",
+                "depth": 2,
+                "id": "conventions"
+              },
+              {
+                "title": "Testing",
+                "depth": 2,
+                "id": "testing"
+              }
+            ]
           }
         ]
       }
@@ -216,6 +239,11 @@
           "title": "Principles",
           "depth": 2,
           "id": "principles"
+        },
+        {
+          "title": "License",
+          "depth": 2,
+          "id": "license"
         }
       ]
     },
@@ -397,6 +425,23 @@
           "id": "configuration"
         }
       ]
+    },
+    "architecture/code.html": {
+      "source": "docs/architecture/code.md",
+      "title": "Code",
+      "slug": "architecturecode",
+      "headings": [
+        {
+          "title": "Conventions",
+          "depth": 2,
+          "id": "conventions"
+        },
+        {
+          "title": "Testing",
+          "depth": 2,
+          "id": "testing"
+        }
+      ]
     }
   },
   "sources": {
@@ -406,6 +451,7 @@
     "docs/architecture/dispatcher.md": "architecture/dispatcher.html",
     "docs/architecture/hooks.md": "architecture/hooks.html",
     "docs/architecture/handlers.md": "architecture/handlers.html",
-    "docs/architecture/services.md": "architecture/services.html"
+    "docs/architecture/services.md": "architecture/services.html",
+    "docs/architecture/code.md": "architecture/code.html"
   }
 }

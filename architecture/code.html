@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=a44c9e9d">
+    <script src="../assets/script.js?t=2bcc4b59"></script>
+    <title>Code</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-architecturecode">
+        <div class="header-nav">
+          <div class="right">
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="code">Code</h1>
+<p>The code and all related project files will be hosted in the <a href="https://github.com/gcba-iris">gcba-iris</a> GitHub organization:</p>
+<ol>
+<li>
+<p><strong>Code</strong></p>
+<p><a href="https://github.com/gcba-iris/iris">https://github.com/gcba-iris/iris</a></p>
+</li>
+<li>
+<p><strong>Technical Documentation</strong></p>
+<p><a href="https://github.com/gcba-iris/iris-tech-docs">https://github.com/gcba-iris/iris-tech-docs</a></p>
+</li>
+</ol>
+<p>The javascript version used will be a subset of ES6, with only the features supported by Node.js 6.5.0 without runtime flags (<a href="https://nodejs.org/en/docs/es6/">shipping features</a>).</p>
+<h2 id="conventions">Conventions</h2>
+<p>This project will adopt the <a href="https://github.com/airbnb/javascript">AirBnB javascript style guide</a>, with the following differences:</p>
+<ul>
+<li>Do call Object.prototype methods directly. (<a href="https://github.com/airbnb/javascript#objects--prototype-builtins">3.9</a>)</li>
+<li>The soft tabs will be set to 4 spaces, not 2. Actual tabs are not allowed. (<a href="https://github.com/airbnb/javascript#whitespace--spaces">18.1</a>)</li>
+<li>The lines of code must be 120 characters max, not 100. (<a href="https://github.com/airbnb/javascript#whitespace--max-len">18.12</a>)</li>
+<li>No additional trailing comma. (<a href="https://github.com/airbnb/javascript#commas--dangling">19.2</a>)</li>
+<li>Do use javascript getters/setters. (<a href="https://github.com/airbnb/javascript#accessors--no-getters-setters">23.2</a>)</li>
+</ul>
+<h2 id="testing">Testing</h2>
+<p>The testing framework used will be <a href="https://github.com/substack/tape">tape</a>. The following types of tests will be written:</p>
+<ul>
+<li>Unit</li>
+<li>Integration</li>
+<li>End-to-end</li>
+</ul>
+<p>The unit tests should account for the majority of the test suite.</p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../architecture/services.html"><span class="title">Services</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="../index.html" class="link title  link-index">Iris</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a href="../architecture/overview.html" class="link title  link-architectureoverview">Overview</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/docks.html" class="link title  link-architecturedocks">Docks</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/dispatcher.html" class="link title  link-architecturedispatcher">Dispatcher</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/hooks.html" class="link title  link-architecturehooks">Hooks</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/handlers.html" class="link title  link-architecturehandlers">Handlers</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/services.html" class="link title  link-architectureservices">Services</a>
+                </li>
+                <li class="menu-item -level-2"><a href="../architecture/code.html" class="link title -active link-architecturecode">Code</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a href="#conventions" class="hlink link-conventions">Conventions</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#testing" class="hlink link-testing">Testing</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>
