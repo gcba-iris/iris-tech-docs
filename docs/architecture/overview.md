@@ -49,4 +49,4 @@ Iris is designed to sit right in front of the data generating devices. Once the 
 
 Iris uses no database by default, and has no UI. Regarding reverse proxies, Iris should access the system ports directly. Though it should be possible to run an array of Iris instances behind a load balancer.
 
-- Node.js 6+
+- Node.js 6.5.0+
