@@ -30,14 +30,14 @@
 <li>Then the dispatcher gets the response and routes it to the right dock.</li>
 <li>The dock sends it back to the original device.</li>
 </ol>
-<h4 id="components">Components</h4>
-<p><strong>Docks</strong>, <strong>hooks</strong>, <strong>handlers</strong> and <strong>services</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris.</p>
 <h4 id="headers">Headers</h4>
 <p>Each header in a raw data packet defines a <strong>data flow</strong>. And each data flow is put together by stacking components on a pipeline. It is akin to the request/response cycle in a regular web application. A single data flow is made up of two phases:</p>
 <h5 id="input-flow">Input flow</h5>
 <p>Represents the path a piece of raw data takes from the device to a single handler. Input hooks are executed along the way.</p>
 <h5 id="output-flow">Output flow</h5>
 <p>The response making its way back to the same device. Output hooks are executed along the way. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.</p>
+<h4 id="components">Components</h4>
+<p><strong>Docks</strong>, <strong>hooks</strong>, <strong>handlers</strong> and <strong>services</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris.</p>
 <h4 id="parsers">Parsers</h4>
 <p>While the dock base class will include a generic parser (with configurable data and header delimiters), it must be possible to pass in a custom parser function.</p>
 <h4 id="threads">Threads</h4>
