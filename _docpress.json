@@ -38,12 +38,14 @@
               {
                 "title": "Physical Architecture",
                 "depth": 2,
-                "id": "physical-architecture"
-              },
-              {
-                "title": "Stack",
-                "depth": 2,
-                "id": "stack"
+                "id": "physical-architecture",
+                "headings": [
+                  {
+                    "title": "Stack",
+                    "depth": 3,
+                    "id": "stack"
+                  }
+                ]
               }
             ]
           },
@@ -120,12 +122,14 @@
         {
           "title": "Physical Architecture",
           "depth": 2,
-          "id": "physical-architecture"
-        },
-        {
-          "title": "Stack",
-          "depth": 2,
-          "id": "stack"
+          "id": "physical-architecture",
+          "headings": [
+            {
+              "title": "Stack",
+              "depth": 3,
+              "id": "stack"
+            }
+          ]
         }
       ]
     },
