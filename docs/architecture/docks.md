@@ -2,11 +2,13 @@
 
 ![Docks](http://i.imgur.com/vpEH5Y0.png)
 
+
 ## Description
 
 Listens to one or more ports for incoming raw data through a specific protocol. Parses it and converts it to a javascript object. Then passes this object along to the [dispatcher](dispatcher.md). If a response comes back, the dock serializes it and sends it off to the original source.
 
 More that one dock can be arranged for a single protocol, provided that they listen to different ports.
+
 
 ## Exposed Methods
 
@@ -17,10 +19,12 @@ More that one dock can be arranged for a single protocol, provided that they lis
 - **encode()** - Serializes the response. The default implementation can be overriden.
 - **reply()** - Sends the response.
 
+
 ## Events
 
 ### Emits
 - **onData:** Triggered every time the dock receives a new piece of data. Gives the handler access to the raw, unprocessed data. Useful to proxy it somewhere else.
+
 
 ## Configuration
 
