@@ -16,6 +16,30 @@
           </div>
         </div>
         <div class="markdown-body"><h1 id="docks">Docks</h1>
+<p><img src="http://i.imgur.com/5zTvlVJ.png" alt="Docks"></p>
+<h2 id="description">Description</h2>
+<p>Listens to one or more ports for incoming raw data through a specific protocol. Parses it and converts it to a javascript object. Then passes this object along to the <a href="dispatcher.html">dispatcher</a>. If a response comes back, the dock serializes it and sends it off to the original source.</p>
+<p>More that one dock can be arranged for a single protocol, provided that they listen to different ports.</p>
+<h2 id="exposed-methods">Exposed Methods</h2>
+<ul>
+<li><strong>setup()</strong> - Initializes the dock.</li>
+<li><strong>listen()</strong> - Listens to the specified ports.</li>
+<li><strong>parse()</strong> - Parses the raw data and converts it to a javascript object. The default implementation is inherited from the base class, but can be overriden.</li>
+<li><strong>pass()</strong> - Passes the data along to the dispatcher.</li>
+<li><strong>encode()</strong> - Serializes the response. The default implementation can be overriden.</li>
+<li><strong>reply()</strong> - Sends the response.</li>
+</ul>
+<h2 id="events">Events</h2>
+<h3 id="emits">Emits</h3>
+<ul>
+<li><strong>onData:</strong> Triggered every time the dock receives a new piece of data. Gives the handler access to the raw, unprocessed data. Useful to proxy it somewhere else.</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<ul>
+<li><strong>ports</strong> <em>(array)</em>: The ports to listen to.</li>
+<li><strong>parser</strong> <em>(function)</em>: Custom function that parses the data.</li>
+<li><strong>encoder</strong> <em>(function)</em>: Custom function that encodes the response.</li>
+</ul>
 
         </div>
         <div class="footer-nav">
@@ -33,6 +57,20 @@
                 <li class="menu-item -level-2"><a href="../architecture/overview.html" class="link title  link-architectureoverview">Overview</a>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/docks.html" class="link title -active link-architecturedocks">Docks</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a href="#description" class="hlink link-description">Description</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#exposed-methods" class="hlink link-exposed-methods">Exposed Methods</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#events" class="hlink link-events">Events</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a href="#emits" class="hlink link-emits">Emits</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#configuration" class="hlink link-configuration">Configuration</a>
+                    </li>
+                  </ul>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/dispatcher.html" class="link title  link-architecturedispatcher">Dispatcher</a>
                 </li>

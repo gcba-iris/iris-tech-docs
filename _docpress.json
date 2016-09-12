@@ -53,7 +53,36 @@
             "title": "Docks",
             "source": "docs/architecture/docks.md",
             "url": "architecture/docks.html",
-            "slug": "architecturedocks"
+            "slug": "architecturedocks",
+            "headings": [
+              {
+                "title": "Description",
+                "depth": 2,
+                "id": "description"
+              },
+              {
+                "title": "Exposed Methods",
+                "depth": 2,
+                "id": "exposed-methods"
+              },
+              {
+                "title": "Events",
+                "depth": 2,
+                "id": "events",
+                "headings": [
+                  {
+                    "title": "Emits",
+                    "depth": 3,
+                    "id": "emits"
+                  }
+                ]
+              },
+              {
+                "title": "Configuration",
+                "depth": 2,
+                "id": "configuration"
+              }
+            ]
           },
           {
             "title": "Dispatcher",
@@ -136,7 +165,36 @@
     "architecture/docks.html": {
       "source": "docs/architecture/docks.md",
       "title": "Docks",
-      "slug": "architecturedocks"
+      "slug": "architecturedocks",
+      "headings": [
+        {
+          "title": "Description",
+          "depth": 2,
+          "id": "description"
+        },
+        {
+          "title": "Exposed Methods",
+          "depth": 2,
+          "id": "exposed-methods"
+        },
+        {
+          "title": "Events",
+          "depth": 2,
+          "id": "events",
+          "headings": [
+            {
+              "title": "Emits",
+              "depth": 3,
+              "id": "emits"
+            }
+          ]
+        },
+        {
+          "title": "Configuration",
+          "depth": 2,
+          "id": "configuration"
+        }
+      ]
     },
     "architecture/dispatcher.html": {
       "source": "docs/architecture/dispatcher.md",
