@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="markdown-body"><h2 id="logical-architecture">Logical Architecture</h2>
-<p><img src="http://i.imgur.com/JNIo0Sh.png" alt="Logical Architecture"></p>
+<p><img src="https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/logical_architecture.png" alt="Logical Architecture"></p>
 <h3 id="flow">Flow</h3>
 <ol>
 <li>Data pours in from multiple sources through the <a href="docks.html">docks</a>. Each dock accounts for a single protocol, and listens to one or more ports.</li>
@@ -43,7 +43,7 @@
 <h4 id="threads">Threads</h4>
 <p>Iris must span on boot a fixed, configurable number of threads that kick in and handle the data after the dispatcher routes it. Each thread should be able to handle by itself a data flow back-to-back. This allows parallell processing and increases stability and data processing speed.</p>
 <h2 id="physical-architecture">Physical Architecture</h2>
-<p><img src="http://i.imgur.com/FcOokpX.png" alt="Physical Architecture"></p>
+<p><img src="https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/physical_architecture.png" alt="Physical Architecture"></p>
 <p>Iris is designed to sit right in front of the data generating devices. Once the raw data has been processed, Iris can pass it on to other services.</p>
 <h3 id="stack">Stack</h3>
 <p>Iris uses no database by default, and has no UI. Regarding reverse proxies, Iris should access the system ports directly. Though it should be possible to run an array of Iris instances behind a load balancer.</p>
