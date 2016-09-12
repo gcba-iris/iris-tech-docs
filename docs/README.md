@@ -9,4 +9,3 @@ Iris
   * [Hooks](architecture/hooks.md)
   * [Handlers](architecture/handlers.md)
   * [Services](architecture/services.md)
-  * [Responder](architecture/responder.md)
