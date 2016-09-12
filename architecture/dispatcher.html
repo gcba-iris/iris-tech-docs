@@ -16,6 +16,23 @@
           </div>
         </div>
         <div class="markdown-body"><h1 id="dispatcher">Dispatcher</h1>
+<p><img src="http://i.imgur.com/U5vxmww.png" alt="Dispatcher"></p>
+<h2 id="description">Description</h2>
+<p>Receives the data objects from the docks and routes them to the right handlers. Then calls the registered input hooks for the corresponding headers.
+Similarly, when there&apos;s a response the dispatcher routes it to the right dock and executes the registered output hooks.</p>
+<p>The dispatcher is the only piece of Iris that cannot be customized or swapped off - it&apos;s the glue that holds everything together.</p>
+<h2 id="exposed-methods">Exposed Methods</h2>
+<ul>
+<li><strong>setup()</strong> - Initializes the dispatcher.</li>
+<li><strong>dispatch()</strong> - Routes the data objects to the right handlers and calls the registered input hooks.</li>
+<li><strong>respond()</strong> - Sends the responses to the right dock and executes the registered output hooks.</li>
+</ul>
+<h2 id="events">Events</h2>
+<h3 id="emits">Emits</h3>
+<ul>
+<li><strong>onHookRegistered:</strong> Fired when a hook is registered for a header in an input or output flow.</li>
+<li><strong>onHookUnregistered:</strong> When a hook is unregistered from an input ot output flow.</li>
+</ul>
 
         </div>
         <div class="footer-nav">
@@ -35,6 +52,18 @@
                 <li class="menu-item -level-2"><a href="../architecture/docks.html" class="link title  link-architecturedocks">Docks</a>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/dispatcher.html" class="link title -active link-architecturedispatcher">Dispatcher</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a href="#description" class="hlink link-description">Description</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#exposed-methods" class="hlink link-exposed-methods">Exposed Methods</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#events" class="hlink link-events">Events</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a href="#emits" class="hlink link-emits">Emits</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/hooks.html" class="link title  link-architecturehooks">Hooks</a>
                 </li>

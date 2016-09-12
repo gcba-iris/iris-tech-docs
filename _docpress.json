@@ -88,7 +88,31 @@
             "title": "Dispatcher",
             "source": "docs/architecture/dispatcher.md",
             "url": "architecture/dispatcher.html",
-            "slug": "architecturedispatcher"
+            "slug": "architecturedispatcher",
+            "headings": [
+              {
+                "title": "Description",
+                "depth": 2,
+                "id": "description"
+              },
+              {
+                "title": "Exposed Methods",
+                "depth": 2,
+                "id": "exposed-methods"
+              },
+              {
+                "title": "Events",
+                "depth": 2,
+                "id": "events",
+                "headings": [
+                  {
+                    "title": "Emits",
+                    "depth": 3,
+                    "id": "emits"
+                  }
+                ]
+              }
+            ]
           },
           {
             "title": "Hooks",
@@ -193,7 +217,31 @@
     "architecture/dispatcher.html": {
       "source": "docs/architecture/dispatcher.md",
       "title": "Dispatcher",
-      "slug": "architecturedispatcher"
+      "slug": "architecturedispatcher",
+      "headings": [
+        {
+          "title": "Description",
+          "depth": 2,
+          "id": "description"
+        },
+        {
+          "title": "Exposed Methods",
+          "depth": 2,
+          "id": "exposed-methods"
+        },
+        {
+          "title": "Events",
+          "depth": 2,
+          "id": "events",
+          "headings": [
+            {
+              "title": "Emits",
+              "depth": 3,
+              "id": "emits"
+            }
+          ]
+        }
+      ]
     },
     "architecture/hooks.html": {
       "source": "docs/architecture/hooks.md",
