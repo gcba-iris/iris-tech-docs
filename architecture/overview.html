@@ -19,14 +19,14 @@
 <p><img src="http://i.imgur.com/IczzeXv.png" alt="Logical Architecture"></p>
 <h3 id="flow">Flow</h3>
 <ol>
-<li>Data pours in from multiple sources through the <strong>docks</strong>. Each dock accounts for a single protocol, and listens to one or more ports.</li>
+<li>Data pours in from multiple sources through the <a href="docks.html">docks</a>. Each dock accounts for a single protocol, and listens to one or more ports.</li>
 <li>The dock parses the data and converts it to a standardized javascript object.</li>
-<li>The dock sends it to the <strong>dispatcher</strong>.</li>
-<li>The dispatcher looks at the header property and routes the data to the right <strong>handler</strong>.</li>
-<li>As the data makes its way to the handler, the <strong>input hooks</strong> (read-only middlewares) can access it and do stuff with it. But they can&apos;t modify it.</li>
-<li>The handler process the data, making use of <strong>services</strong> to persist it, redirect it, etc.</li>
-<li>If the handler generates a response, it goes to the <strong>responder</strong>. If there&apos;s no response, the process ends here.</li>
-<li>The <strong>output hooks</strong> can get their hands on the response and do stuff with it before it goes out, but without being able to modify it.</li>
+<li>The dock sends it to the <a href="dispatcher.html">dispatcher</a>.</li>
+<li>The dispatcher looks at the header property and routes the data to the right <a href="handlers.html">handler</a>.</li>
+<li>As the data makes its way to the handler, the <a href="hooks.html">input hooks</a> (read-only middlewares) can access it and do stuff with it. But they can&apos;t modify it.</li>
+<li>The handler process the data, making use of <a href="services.html">services</a> to persist it, redirect it, etc.</li>
+<li>If the handler generates a response, it goes to the <a href="responder.html">responder</a>. If there&apos;s no response, the process ends here.</li>
+<li>The <a href="hooks.html">output hooks</a> can get their hands on the response and do stuff with it before it goes out, but without being able to modify it.</li>
 <li>Then the responder gets the response and routes it to the right dock.</li>
 <li>The dock sends it back to the original device.</li>
 </ol>
