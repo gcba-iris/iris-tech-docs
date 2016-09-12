@@ -1,5 +1,5 @@
 ## Logical Architecture
-![Logical Architecture](http://i.imgur.com/lNrcZE9.png)
+![Logical Architecture](http://i.imgur.com/JNIo0Sh.png)
 
 ### Flow
 
@@ -33,7 +33,7 @@ Iris must span on boot a fixed, configurable number of threads that kick in and 
 
 
 ## Physical Architecture
-![Physical Architecture](http://i.imgur.com/zVgfLzf.png)
+![Physical Architecture](http://i.imgur.com/FcOokpX.png)
 
 Iris is designed to sit right in front of the data generating devices. Once the raw data has been processed, Iris can pass it on to other services.
 
