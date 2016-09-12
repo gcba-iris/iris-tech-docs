@@ -30,6 +30,8 @@
 <li>Then the dispatcher gets the response and routes it to the right dock.</li>
 <li>The dock sends it back to the original device.</li>
 </ol>
+<h4 id="components">Components</h4>
+<p><strong>Docks</strong>, <strong>hooks</strong>, <strong>handlers</strong> and <strong>services</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris.</p>
 <h4 id="headers">Headers</h4>
 <p>Each header in a raw data packet defines a <strong>data flow</strong>. And each data flow is put together by stacking components on a pipeline. It&apos;s a lot like Gulpfiles, with data flows taking the place of tasks, and components that of Gulp plugins.</p>
 <h4 id="parsers">Parsers</h4>
