@@ -16,6 +16,18 @@
           </div>
         </div>
         <div class="markdown-body"><h1 id="services">Services</h1>
+<p><img src="http://i.imgur.com/dOlHIC4.png" alt="Services"></p>
+<h2 id="description">Description</h2>
+<p>Services encapsulate functionality that may be used by more that one <a href="handlers.html">handler</a> such as a database connection, a shared object, etc. With services it&apos;s possible to extract and reuse common pieces of code, keeping the handlers lean.</p>
+<h2 id="exposed-methods">Exposed Methods</h2>
+<ul>
+<li><strong>setup()</strong> - Initializes the service.</li>
+</ul>
+<p>Each service shall expose custom methods.</p>
+<h2 id="events">Events</h2>
+<p>Each service shall emit and listen to custom events, if any.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Each service shall take custom configuration parameters, if any.</p>
 
         </div>
         <div class="footer-nav">
@@ -40,6 +52,16 @@
                 <li class="menu-item -level-2"><a href="../architecture/handlers.html" class="link title  link-architecturehandlers">Handlers</a>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/services.html" class="link title -active link-architectureservices">Services</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a href="#description" class="hlink link-description">Description</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#exposed-methods" class="hlink link-exposed-methods">Exposed Methods</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#events" class="hlink link-events">Events</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#configuration" class="hlink link-configuration">Configuration</a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>

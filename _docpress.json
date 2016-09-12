@@ -178,7 +178,29 @@
             "title": "Services",
             "source": "docs/architecture/services.md",
             "url": "architecture/services.html",
-            "slug": "architectureservices"
+            "slug": "architectureservices",
+            "headings": [
+              {
+                "title": "Description",
+                "depth": 2,
+                "id": "description"
+              },
+              {
+                "title": "Exposed Methods",
+                "depth": 2,
+                "id": "exposed-methods"
+              },
+              {
+                "title": "Events",
+                "depth": 2,
+                "id": "events"
+              },
+              {
+                "title": "Configuration",
+                "depth": 2,
+                "id": "configuration"
+              }
+            ]
           }
         ]
       }
@@ -352,7 +374,29 @@
     "architecture/services.html": {
       "source": "docs/architecture/services.md",
       "title": "Services",
-      "slug": "architectureservices"
+      "slug": "architectureservices",
+      "headings": [
+        {
+          "title": "Description",
+          "depth": 2,
+          "id": "description"
+        },
+        {
+          "title": "Exposed Methods",
+          "depth": 2,
+          "id": "exposed-methods"
+        },
+        {
+          "title": "Events",
+          "depth": 2,
+          "id": "events"
+        },
+        {
+          "title": "Configuration",
+          "depth": 2,
+          "id": "configuration"
+        }
+      ]
     }
   },
   "sources": {
