@@ -118,7 +118,31 @@
             "title": "Hooks",
             "source": "docs/architecture/hooks.md",
             "url": "architecture/hooks.html",
-            "slug": "architecturehooks"
+            "slug": "architecturehooks",
+            "headings": [
+              {
+                "title": "Description",
+                "depth": 2,
+                "id": "description"
+              },
+              {
+                "title": "Exposed Methods",
+                "depth": 2,
+                "id": "exposed-methods"
+              },
+              {
+                "title": "Events",
+                "depth": 2,
+                "id": "events",
+                "headings": [
+                  {
+                    "title": "Emits",
+                    "depth": 3,
+                    "id": "emits"
+                  }
+                ]
+              }
+            ]
           },
           {
             "title": "Handlers",
@@ -246,7 +270,31 @@
     "architecture/hooks.html": {
       "source": "docs/architecture/hooks.md",
       "title": "Hooks",
-      "slug": "architecturehooks"
+      "slug": "architecturehooks",
+      "headings": [
+        {
+          "title": "Description",
+          "depth": 2,
+          "id": "description"
+        },
+        {
+          "title": "Exposed Methods",
+          "depth": 2,
+          "id": "exposed-methods"
+        },
+        {
+          "title": "Events",
+          "depth": 2,
+          "id": "events",
+          "headings": [
+            {
+              "title": "Emits",
+              "depth": 3,
+              "id": "emits"
+            }
+          ]
+        }
+      ]
     },
     "architecture/handlers.html": {
       "source": "docs/architecture/handlers.md",

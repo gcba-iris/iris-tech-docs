@@ -16,6 +16,20 @@
           </div>
         </div>
         <div class="markdown-body"><h1 id="hooks">Hooks</h1>
+<p><img src="http://i.imgur.com/nKZL7Z1.png" alt="Hooks"></p>
+<h2 id="description">Description</h2>
+<p>A hook is just a callback function that gets executed when the data comes in or out the <a href="dispatcher.html">dispatcher</a> for a given data flow. Multiple hooks can be tied to a data flow, which in turn is tied to a particular header. Each hook can be set to run when the data comes in (input hook) or when the response goes out (output hook).</p>
+<p>The hooks can access the data/response objects.</p>
+<h2 id="exposed-methods">Exposed Methods</h2>
+<ul>
+<li><strong>setup()</strong> - Initializes the hook.</li>
+<li><strong>run()</strong> - Executes the hook.</li>
+</ul>
+<h2 id="events">Events</h2>
+<h3 id="emits">Emits</h3>
+<ul>
+<li><strong>onReload:</strong> Fired when the hook has been hot reloaded.</li>
+</ul>
 
         </div>
         <div class="footer-nav">
@@ -37,6 +51,18 @@
                 <li class="menu-item -level-2"><a href="../architecture/dispatcher.html" class="link title  link-architecturedispatcher">Dispatcher</a>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/hooks.html" class="link title -active link-architecturehooks">Hooks</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a href="#description" class="hlink link-description">Description</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#exposed-methods" class="hlink link-exposed-methods">Exposed Methods</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#events" class="hlink link-events">Events</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a href="#emits" class="hlink link-emits">Emits</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </li>
                 <li class="menu-item -level-2"><a href="../architecture/handlers.html" class="link title  link-architecturehandlers">Handlers</a>
                 </li>
