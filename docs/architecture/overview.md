@@ -15,10 +15,13 @@
 9. The dock sends it back to the original device.
 
 
+#### Components
+
+**Docks**, **hooks**, **handlers** and **services** can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris.
+
 #### Headers
 
 Each header in a raw data packet defines a **data flow**. And each data flow is put together by stacking components on a pipeline. It's a lot like Gulpfiles, with data flows taking the place of tasks, and components that of Gulp plugins.
-
 
 #### Parsers
 
