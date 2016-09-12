@@ -1,6 +1,6 @@
 # Hooks
 
-![Hooks](http://i.imgur.com/myOoPdd.png)
+![Hooks](https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/hooks.png)
 
 
 ## Description

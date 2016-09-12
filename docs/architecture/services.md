@@ -1,6 +1,6 @@
 # Services
 
-![Services](http://i.imgur.com/dOlHIC4.png)
+![Services](https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/services.png)
 
 ## Description
 

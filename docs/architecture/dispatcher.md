@@ -1,6 +1,6 @@
 # Dispatcher
 
-![Dispatcher](http://i.imgur.com/1Lg4L15.png)
+![Dispatcher](https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/dispatcher.png)
 
 ## Description
 

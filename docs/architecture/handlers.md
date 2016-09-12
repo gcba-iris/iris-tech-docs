@@ -1,6 +1,6 @@
 # Handlers
 
-![Handlers](http://i.imgur.com/ihDnlyA.png)
+![Handlers](https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/handler.png)
 
 
 ## Description

@@ -1,6 +1,6 @@
 # Docks
 
-![Docks](http://i.imgur.com/J51dAYv.png)
+![Docks](https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/docks.png)
 
 
 ## Description
