@@ -9,6 +9,8 @@ Listens to one or more ports for incoming raw data through a specific protocol. 
 
 More that one dock can be arranged for a single protocol, provided that they listen to different ports.
 
+Docks must extend the base Dock class.
+
 
 ## Exposed Methods
 

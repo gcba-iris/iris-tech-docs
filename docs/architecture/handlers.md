@@ -9,6 +9,8 @@ Processes the data objects sent by the [dispatcher](dispatcher.md). A handler ca
 
 A handler belongs to a specific data flow, which in turn is defined by a specific data header. The header is comparable to a MVC route and the handler to a MVC controller: a handler only processes the data that arrives with a certain header. And for each header there's only one handler.
 
+Handlers must extend the base Handler class.
+
 
 ## Exposed Methods
 

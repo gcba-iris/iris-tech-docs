@@ -9,6 +9,8 @@ A hook is just a callback function that gets executed when the data comes in or 
 
 The hooks have read-only access to the data/response objects.
 
+Hooks must extend the base Hook class.
+
 
 ## Exposed Methods
 
