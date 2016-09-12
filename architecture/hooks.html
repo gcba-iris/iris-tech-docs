@@ -19,7 +19,7 @@
 <p><img src="http://i.imgur.com/myOoPdd.png" alt="Hooks"></p>
 <h2 id="description">Description</h2>
 <p>A hook is just a callback function that gets executed when the data comes in or out the <a href="dispatcher.html">dispatcher</a> for a given data flow. Multiple hooks can be tied to a data flow, which in turn is tied to a particular header. Each hook can be set to run when the data comes in (input hook) or when the response goes out (output hook).</p>
-<p>The hooks can access the data/response objects.</p>
+<p>The hooks have read-only access to the data/response objects.</p>
 <h2 id="exposed-methods">Exposed Methods</h2>
 <ul>
 <li><strong>setup()</strong> - Initializes the hook.</li>
