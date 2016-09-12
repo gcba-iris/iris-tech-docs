@@ -18,4 +18,5 @@ The hooks can access the data/response objects.
 ## Events
 
 ### Emits
+- **onLoad:** When the hook has been loaded for the first time (initial load).
 - **onReload:** Fired when the hook has been hot reloaded.

@@ -24,6 +24,7 @@ More that one dock can be arranged for a single protocol, provided that they lis
 
 ### Emits
 - **onData:** Triggered every time the dock receives a new piece of data. Gives the handler access to the raw, unprocessed data. Useful to proxy it somewhere else.
+- **onLoad:** When the dock has been loaded for the first time (initial load).
 - **onReload:** Fired when the dock has been hot reloaded.
 
 
