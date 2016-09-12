@@ -10,7 +10,7 @@
 5. As the data makes its way to the handler, the [input hooks](hooks.md) (read-only middlewares) can access it and do stuff with it. But they can't modify it.
 6. The handler process the data, making use of [services](services.md) to persist it, redirect it, etc.
 7. If the handler generates a response, it goes to the dispatcher. If there's no response, the process ends here.
-8. The [output hooks](hooks.md) can get their hands on the response and do stuff with it before it goes out, but without being able to modify it.
+8. The [output hooks](hooks.md) can get their hands on the response and do stuff with it, but without being able to modify it.
 8. Then the dispatcher gets the response and routes it to the right dock.
 9. The dock sends it back to the original device.
 
@@ -21,7 +21,15 @@
 
 #### Headers
 
-Each header in a raw data packet defines a **data flow**. And each data flow is put together by stacking components on a pipeline. It's a lot like Gulpfiles, with data flows taking the place of tasks, and components that of Gulp plugins.
+Each header in a raw data packet defines a **data flow**. And each data flow is put together by stacking components on a pipeline. It is akin to the request/response cycle in a regular web application. A single data flow is made up of two phases:
+
+##### Input flow
+
+Represents the path a piece of raw data takes from the device to a single handler. Input hooks are executed along the way.
+
+##### Output flow
+
+The response making its way back to the same device. Output hooks are executed along the way. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.
 
 #### Parsers
 
