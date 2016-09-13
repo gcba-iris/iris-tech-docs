@@ -29,7 +29,7 @@ The response making its way back to the same device. Output hooks are executed a
 
 #### Components
 
-**Docks**, **hooks**, **handlers** and **services** can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container be used to loosely tie them together.
+**Docks**, **hooks**, **handlers** and **services** can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container must be used to loosely tie them together.
 
 #### Parsers
 
