@@ -37,7 +37,7 @@
 <h5 id="output-flow">Output flow</h5>
 <p>The response making its way back to the same device. Output hooks are executed along the way. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.</p>
 <h4 id="components">Components</h4>
-<p><strong>Docks</strong>, <strong>hooks</strong>, <strong>handlers</strong> and <strong>services</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container be used to loosely tie them together.</p>
+<p><strong>Docks</strong>, <strong>hooks</strong>, <strong>handlers</strong> and <strong>services</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container must be used to loosely tie them together.</p>
 <h4 id="parsers">Parsers</h4>
 <p>While the dock base class will include a generic parser (with configurable data and header delimiters), it must be possible to pass in a custom parser function.</p>
 <h4 id="threads">Threads</h4>
