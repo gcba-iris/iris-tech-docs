@@ -8,5 +8,4 @@ Iris
   * [Dispatcher](architecture/dispatcher.md)
   * [Hooks](architecture/hooks.md)
   * [Handlers](architecture/handlers.md)
-  * [Services](architecture/services.md)
   * [Code](architecture/code.md)

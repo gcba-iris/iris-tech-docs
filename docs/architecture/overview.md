@@ -8,7 +8,7 @@
 3. The dock sends it to the [dispatcher](dispatcher.md).
 4. The dispatcher looks at the tag property and routes the data to the right [handler](handlers.md).
 5. As the data makes its way to the handler, the [input hooks](hooks.md) (read-only middlewares) can access it and do stuff with it. But they can't modify it.
-6. The handler process the data, making use of [services](services.md) to persist it, redirect it, etc.
+6. The handler process the data, persisting it, redirecting it, etc.
 7. If the handler generates a response, it goes to the dispatcher. If there's no response, the process ends here.
 8. The [output hooks](hooks.md) can get their hands on the response and do stuff with it, but without being able to modify it.
 8. Then the dispatcher gets the response and routes it to the right dock.
@@ -29,7 +29,7 @@ The response making its way back to the same device. Output hooks are executed a
 
 #### Components
 
-**Docks**, **hooks**, **handlers** and **services** can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container must be used to loosely tie them together.
+**Docks**, **hooks** and **handlers** can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container must be used to loosely tie them together.
 
 #### Parsers
 
