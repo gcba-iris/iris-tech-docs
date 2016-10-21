@@ -27,7 +27,25 @@
                   <ul class="headings heading-list">
                     <li class="heading-item -depth-2"><a class="hlink link-description" href="#description">Description</a>
                     </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-difference-with-handlers" href="#difference-with-handlers">Difference with handlers</a>
+                    </li>
                     <li class="heading-item -depth-2"><a class="hlink link-exposed-methods" href="#exposed-methods">Exposed Methods</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-methods-that-must-be-implemented" href="#methods-that-must-be-implemented">Methods that must be implemented</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a class="hlink link-methods-present-in-the-base-class" href="#methods-present-in-the-base-class">Methods present in the base class</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-exposed-properties" href="#exposed-properties">Exposed Properties</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-getters-that-must-be-implemented" href="#getters-that-must-be-implemented">Getters that must be implemented</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a class="hlink link-getters-present-in-the-base-class" href="#getters-present-in-the-base-class">Getters present in the base class</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a class="hlink link-setters-present-in-the-base-class" href="#setters-present-in-the-base-class">Setters present in the base class</a>
+                        </li>
+                      </ul>
                     </li>
                     <li class="heading-item -depth-2"><a class="hlink link-events" href="#events">Events</a>
                       <ul class="heading-list -depth-2">
@@ -59,15 +77,40 @@
 <p>A hook is just a callback function that gets executed when the data comes in or out the <a href="dispatcher.html">dispatcher</a> for a given data flow. Multiple hooks can be tied to a single data flow, which in turn is tied to a single tag. Each hook can be set to run when the data comes in (input hook) or when the response goes out (output hook).</p>
 <p>The hooks have read-only access to the data/response objects.</p>
 <p>Hooks must extend the base Hook class.</p>
+<h2 id="difference-with-handlers">Difference with handlers</h2>
+<p>The handler can generate and return a response. Hooks can run on the response as well on the data.</p>
 <h2 id="exposed-methods">Exposed Methods</h2>
+<h3 id="methods-that-must-be-implemented">Methods that must be implemented</h3>
 <ul>
-<li><strong>setup()</strong> - Initializes the hook.</li>
-<li><strong>run()</strong> - Executes the hook.</li>
+<li><strong>process(data)</strong> - The hook body, the function that will be executed.</li>
+</ul>
+<h3 id="methods-present-in-the-base-class">Methods present in the base class</h3>
+<ul>
+<li><strong>run(data)</strong> - Receives the data from the dispatcher and calls <code>process()</code>.</li>
+</ul>
+<h2 id="exposed-properties">Exposed Properties</h2>
+<h3 id="getters-that-must-be-implemented">Getters that must be implemented</h3>
+<ul>
+<li><strong>path</strong> <em>(string)</em> - Returns the path of the dock file.
+Example:</li>
+</ul>
+<pre><code class="lang-javascript">    get path() {
+        <span class="pl-k">return</span> __filename;
+    }
+</code></pre>
+<h3 id="getters-present-in-the-base-class">Getters present in the base class</h3>
+<ul>
+<li><strong>name</strong> <em>(string)</em> - Returns the handler name.</li>
+<li><strong>config</strong> <em>(string)</em> - Returns the config object.</li>
+</ul>
+<h3 id="setters-present-in-the-base-class">Setters present in the base class</h3>
+<ul>
+<li><strong>config</strong> <em>(string)</em> - Sets the config object.</li>
 </ul>
 <h2 id="events">Events</h2>
 <h3 id="emits">Emits</h3>
 <ul>
-<li><strong>onReload:</strong> Fired when the hook has been hot reloaded.</li>
+<li><strong>data</strong> - Triggered every time the hook receives a new piece of data/response.</li>
 </ul>
 
         </div>

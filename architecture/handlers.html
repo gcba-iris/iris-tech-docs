@@ -29,6 +29,8 @@
                   <ul class="headings heading-list">
                     <li class="heading-item -depth-2"><a class="hlink link-description" href="#description">Description</a>
                     </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-difference-with-hooks" href="#difference-with-hooks">Difference with hooks</a>
+                    </li>
                     <li class="heading-item -depth-2"><a class="hlink link-exposed-methods" href="#exposed-methods">Exposed Methods</a>
                       <ul class="heading-list -depth-2">
                         <li class="heading-item -depth-3"><a class="hlink link-methods-that-must-be-implemented" href="#methods-that-must-be-implemented">Methods that must be implemented</a>
@@ -75,6 +77,8 @@
 <p>Processes the data object sent by the <a href="dispatcher.html">dispatcher</a>. A handler can generate a response, which is passed back to the dispatcher. Said response can be a string, an array, an object with a <code>toString()</code> method or a javascript object analogous to the <code>data.message</code> object. The response will be serialized and sent by the respective <a href="docks.html">dock</a>. If there&apos;s no response, the data flow ends there.</p>
 <p>There can only be a single handler in a data flow, which in turn is defined by a single tag. This means that for each tag there&apos;s only one data flow with one handler at the end. The tag is comparable to a MVC route and the handler to a MVC controller: a handler only processes the data that arrives with a certain tag.</p>
 <p>Handlers must extend the base Handler class.</p>
+<h2 id="difference-with-hooks">Difference with hooks</h2>
+<p>The handler can generate and return a response. Hooks can run on the response as well on the data.</p>
 <h2 id="exposed-methods">Exposed Methods</h2>
 <h3 id="methods-that-must-be-implemented">Methods that must be implemented</h3>
 <ul>
