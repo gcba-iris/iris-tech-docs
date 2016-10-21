@@ -65,18 +65,18 @@ Example:
 {
     port: 5000,
     parser: {
-        subtagSeparator: '|',
-        dataSeparator: ','
+        subtagSeparator: '#',
+        dataSeparator: '.'
     },
     encoder: {
-        subtagSeparator: '|',
-        dataSeparator: ','
+        subtagSeparator: '#',
+        dataSeparator: '.'
     },
     maxMessageLength: 100
 }
 ```
 
 - **port** *(integer)* - The port to listen to.
-- **parser** *(object, optional)* - If you're using the default parser, you can configure the subtag and data separators.
+- **parser** *(object, optional)* - If you're using the default parser, you can configure the subtag and data separators. The defaults are `|` for `subtagSeparator` and `,` for `dataSeparator`.
 - **encoder** *(object, optional)* - Idem parser.
 - **maxMessageLength** *(integer, optional)* - The max length in characters of a message. If not set, the default is `300`.
