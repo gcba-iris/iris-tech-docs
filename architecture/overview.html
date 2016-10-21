@@ -62,7 +62,7 @@
 <li>Data pours in from multiple sources through the <a href="docks.html">docks</a>. Each dock accounts for a single protocol, and listens to one or more ports.</li>
 <li>The dock parses the data and converts it to a standardized javascript object.</li>
 <li>The dock sends it to the <a href="dispatcher.html">dispatcher</a>.</li>
-<li>The dispatcher looks at the header property and routes the data to the right <a href="handlers.html">handler</a>.</li>
+<li>The dispatcher looks at the tag property and routes the data to the right <a href="handlers.html">handler</a>.</li>
 <li>As the data makes its way to the handler, the <a href="hooks.html">input hooks</a> (read-only middlewares) can access it and do stuff with it. But they can&apos;t modify it.</li>
 <li>The handler process the data, making use of <a href="services.html">services</a> to persist it, redirect it, etc.</li>
 <li>If the handler generates a response, it goes to the dispatcher. If there&apos;s no response, the process ends here.</li>
@@ -70,8 +70,8 @@
 <li>Then the dispatcher gets the response and routes it to the right dock.</li>
 <li>The dock sends it back to the original device.</li>
 </ol>
-<h4 id="headers">Headers</h4>
-<p>Each header in a raw data packet defines a <strong>data flow</strong>. And each data flow is put together by stacking components on a pipeline. It is akin to the request/response cycle in a regular web application. A single data flow is made up of two phases:</p>
+<h4 id="tags">Tags</h4>
+<p>The tag is the first portion of the message sent by a device. A single data packet must contain a tag, and no more than one. The message tag defines a <strong>data flow</strong>. And each data flow is put together by stacking components on a pipeline. It is akin to the request/response cycle in a regular web application. A single data flow is made up of two phases:</p>
 <h5 id="input-flow">Input flow</h5>
 <p>Represents the path a piece of raw data takes from the device to a single handler. Input hooks are executed along the way.</p>
 <h5 id="output-flow">Output flow</h5>
@@ -79,7 +79,7 @@
 <h4 id="components">Components</h4>
 <p><strong>Docks</strong>, <strong>hooks</strong>, <strong>handlers</strong> and <strong>services</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container must be used to loosely tie them together.</p>
 <h4 id="parsers">Parsers</h4>
-<p>While the dock base class will include a generic parser (with configurable data and header delimiters), it must be possible to pass in a custom parser function.</p>
+<p>While the dock base class will include a generic parser (with configurable data and tag delimiters), it must be possible to pass in a custom parser function.</p>
 <h4 id="threads">Threads</h4>
 <p>Iris must span on boot a fixed, configurable number of threads that kick in and handle the data after the dispatcher routes it. Each data flow must be managed by the same thread from this point onwards. This allows for parallel processing and increases stability and data processing speed.</p>
 <h2 id="physical-architecture">Physical Architecture</h2>

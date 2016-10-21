@@ -96,6 +96,11 @@
                     "title": "Getters present in the base class",
                     "depth": 3,
                     "id": "getters-present-in-the-base-class"
+                  },
+                  {
+                    "title": "Setters present in the base class",
+                    "depth": 3,
+                    "id": "setters-present-in-the-base-class"
                   }
                 ]
               },
@@ -197,7 +202,41 @@
               {
                 "title": "Exposed Methods",
                 "depth": 2,
-                "id": "exposed-methods"
+                "id": "exposed-methods",
+                "headings": [
+                  {
+                    "title": "Methods that must be implemented",
+                    "depth": 3,
+                    "id": "methods-that-must-be-implemented"
+                  },
+                  {
+                    "title": "Methods present in the base class",
+                    "depth": 3,
+                    "id": "methods-present-in-the-base-class"
+                  }
+                ]
+              },
+              {
+                "title": "Exposed Properties",
+                "depth": 2,
+                "id": "exposed-properties",
+                "headings": [
+                  {
+                    "title": "Getters that must be implemented",
+                    "depth": 3,
+                    "id": "getters-that-must-be-implemented"
+                  },
+                  {
+                    "title": "Getters present in the base class",
+                    "depth": 3,
+                    "id": "getters-present-in-the-base-class"
+                  },
+                  {
+                    "title": "Setters present in the base class",
+                    "depth": 3,
+                    "id": "setters-present-in-the-base-class"
+                  }
+                ]
               },
               {
                 "title": "Events",
@@ -356,6 +395,11 @@
               "title": "Getters present in the base class",
               "depth": 3,
               "id": "getters-present-in-the-base-class"
+            },
+            {
+              "title": "Setters present in the base class",
+              "depth": 3,
+              "id": "setters-present-in-the-base-class"
             }
           ]
         },
@@ -457,7 +501,41 @@
         {
           "title": "Exposed Methods",
           "depth": 2,
-          "id": "exposed-methods"
+          "id": "exposed-methods",
+          "headings": [
+            {
+              "title": "Methods that must be implemented",
+              "depth": 3,
+              "id": "methods-that-must-be-implemented"
+            },
+            {
+              "title": "Methods present in the base class",
+              "depth": 3,
+              "id": "methods-present-in-the-base-class"
+            }
+          ]
+        },
+        {
+          "title": "Exposed Properties",
+          "depth": 2,
+          "id": "exposed-properties",
+          "headings": [
+            {
+              "title": "Getters that must be implemented",
+              "depth": 3,
+              "id": "getters-that-must-be-implemented"
+            },
+            {
+              "title": "Getters present in the base class",
+              "depth": 3,
+              "id": "getters-present-in-the-base-class"
+            },
+            {
+              "title": "Setters present in the base class",
+              "depth": 3,
+              "id": "setters-present-in-the-base-class"
+            }
+          ]
         },
         {
           "title": "Events",

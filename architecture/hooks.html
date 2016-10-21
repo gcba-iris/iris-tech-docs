@@ -56,7 +56,7 @@
         <div class="markdown-body"><h1 id="hooks">Hooks</h1>
 <p><img src="https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/hooks.png" alt="Hooks"></p>
 <h2 id="description">Description</h2>
-<p>A hook is just a callback function that gets executed when the data comes in or out the <a href="dispatcher.html">dispatcher</a> for a given data flow. Multiple hooks can be tied to a data flow, which in turn is tied to a particular header. Each hook can be set to run when the data comes in (input hook) or when the response goes out (output hook).</p>
+<p>A hook is just a callback function that gets executed when the data comes in or out the <a href="dispatcher.html">dispatcher</a> for a given data flow. Multiple hooks can be tied to a single data flow, which in turn is tied to a single tag. Each hook can be set to run when the data comes in (input hook) or when the response goes out (output hook).</p>
 <p>The hooks have read-only access to the data/response objects.</p>
 <p>Hooks must extend the base Hook class.</p>
 <h2 id="exposed-methods">Exposed Methods</h2>
@@ -67,7 +67,6 @@
 <h2 id="events">Events</h2>
 <h3 id="emits">Emits</h3>
 <ul>
-<li><strong>onLoad:</strong> When the hook has been loaded for the first time (initial load).</li>
 <li><strong>onReload:</strong> Fired when the hook has been hot reloaded.</li>
 </ul>
 

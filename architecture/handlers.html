@@ -30,6 +30,22 @@
                     <li class="heading-item -depth-2"><a class="hlink link-description" href="#description">Description</a>
                     </li>
                     <li class="heading-item -depth-2"><a class="hlink link-exposed-methods" href="#exposed-methods">Exposed Methods</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-methods-that-must-be-implemented" href="#methods-that-must-be-implemented">Methods that must be implemented</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a class="hlink link-methods-present-in-the-base-class" href="#methods-present-in-the-base-class">Methods present in the base class</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-exposed-properties" href="#exposed-properties">Exposed Properties</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-getters-that-must-be-implemented" href="#getters-that-must-be-implemented">Getters that must be implemented</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a class="hlink link-getters-present-in-the-base-class" href="#getters-present-in-the-base-class">Getters present in the base class</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a class="hlink link-setters-present-in-the-base-class" href="#setters-present-in-the-base-class">Setters present in the base class</a>
+                        </li>
+                      </ul>
                     </li>
                     <li class="heading-item -depth-2"><a class="hlink link-events" href="#events">Events</a>
                       <ul class="heading-list -depth-2">
@@ -56,20 +72,42 @@
         <div class="markdown-body"><h1 id="handlers">Handlers</h1>
 <p><img src="https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/handler.png" alt="Handlers"></p>
 <h2 id="description">Description</h2>
-<p>Processes the data objects sent by the <a href="dispatcher.html">dispatcher</a>. A handler can make use of various <a href="services.html">services</a> to deal with the data. It can also generate a response, which is passed back to the dispatcher. Said response is a javascript object analogous to the data object that can be serialized and sent by the respective <a href="docks.html">dock</a>. If there&apos;s no response, the data flow ends there.</p>
-<p>A handler belongs to a specific data flow, which in turn is defined by a specific data header. The header is comparable to a MVC route and the handler to a MVC controller: a handler only processes the data that arrives with a certain header. And for each header there&apos;s only one handler.</p>
+<p>Processes the data object sent by the <a href="dispatcher.html">dispatcher</a>. A handler can generate a response, which is passed back to the dispatcher. Said response can be a string, an array, an object with a <code>toString()</code> method or a javascript object analogous to the <code>data.message</code> object. The response will be serialized and sent by the respective <a href="docks.html">dock</a>. If there&apos;s no response, the data flow ends there.</p>
+<p>There can only be a single handler in a data flow, which in turn is defined by a single tag. This means that for each tag there&apos;s only one data flow with one handler at the end. The tag is comparable to a MVC route and the handler to a MVC controller: a handler only processes the data that arrives with a certain tag.</p>
 <p>Handlers must extend the base Handler class.</p>
 <h2 id="exposed-methods">Exposed Methods</h2>
+<h3 id="methods-that-must-be-implemented">Methods that must be implemented</h3>
 <ul>
-<li><strong>setup()</strong> - Initializes the handler.</li>
-<li><strong>handle()</strong> - Processes the data object.</li>
+<li><strong>process(data)</strong> - Processes the data object.</li>
+</ul>
+<h3 id="methods-present-in-the-base-class">Methods present in the base class</h3>
+<ul>
+<li><strong>handle(data)</strong> - Receives the data from the dispatcher and calls <code>process()</code>.</li>
+<li><strong>send(reponse)</strong> - Sends the response to the dispatcher.</li>
+</ul>
+<h2 id="exposed-properties">Exposed Properties</h2>
+<h3 id="getters-that-must-be-implemented">Getters that must be implemented</h3>
+<ul>
+<li><strong>path</strong> <em>(string)</em> - Returns the path of the dock file.
+Example:</li>
+</ul>
+<pre><code class="lang-javascript">    get path() {
+        <span class="pl-k">return</span> __filename;
+    }
+</code></pre>
+<h3 id="getters-present-in-the-base-class">Getters present in the base class</h3>
+<ul>
+<li><strong>name</strong> <em>(string)</em> - Returns the handler name.</li>
+<li><strong>config</strong> <em>(string)</em> - Returns the config object.</li>
+</ul>
+<h3 id="setters-present-in-the-base-class">Setters present in the base class</h3>
+<ul>
+<li><strong>config</strong> <em>(string)</em> - Sets the config object.</li>
 </ul>
 <h2 id="events">Events</h2>
 <h3 id="emits">Emits</h3>
 <ul>
-<li><strong>onData:</strong> Triggered every time the handler receives a new piece of data.</li>
-<li><strong>onLoad:</strong> When the handler has been loaded for the first time (initial load).</li>
-<li><strong>onReload:</strong> Fired when the handler has been hot reloaded.</li>
+<li><strong>data</strong> - Triggered every time the handler receives a new piece of data.</li>
 </ul>
 
         </div>
