@@ -29,7 +29,7 @@ The response making its way back to the same device. Output hooks are executed a
 
 #### Components
 
-**Docks**, **hooks**, **handlers** and **services** can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris.
+**Docks**, **hooks**, **handlers** and **services** can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container must be used to loosely tie them together.
 
 #### Parsers
 
@@ -37,7 +37,7 @@ While the dock base class will include a generic parser (with configurable data 
 
 #### Threads
 
-Iris must span on boot a fixed, configurable number of threads that kick in and handle the data after the dispatcher routes it. Each thread should be able to handle by itself a data flow back-to-back. This allows parallell processing and increases stability and data processing speed.
+Iris must span on boot a fixed, configurable number of threads that kick in and handle the data after the dispatcher routes it. Each data flow must be managed by the same thread from this point onwards. This allows for parallel processing and increases stability and data processing speed.
 
 
 ## Physical Architecture
