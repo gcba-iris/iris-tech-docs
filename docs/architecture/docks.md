@@ -22,10 +22,31 @@ Docks must extend the base Dock class.
 
 ### Methods present in the base class
 
-- **validate(message)** - Validates the message length against the configured max and performs a format check. This method can be overriden if needed.
-- **parse(data, meta)** - Parses the raw data and converts it to a javascript object. This is a default implementation provided for convenience that can and should be overriden to suit your needs.
+- **validate(message)** - Validates the message length against the configured max and performs a format check. This method can be overriden if needed. Returns `true` if valid, `false` otherwise.
+- **parse(data, meta)** - Parses the raw data and converts it to a javascript object. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the parsed data object or `false` if the message couldn't be parsed.
+
+#### Structure of the parsed data object
+
+```javascript
+    {
+        tag:  // A string, the message tag
+        meta:  // An object with additional data, such as the IP address that the message came from
+               // Must be set by the child class
+        data:  // An object with the actual parsed data
+    }
+```
+
+##### `data` property example
+
+```javascript
+    data: {
+        'subtag1': ['02', '56', '58', '8'],
+        'subtag2': ['sds', 'sd', 'wtr', 'ghd']
+    }
+```
+
 - **process(message, meta, callback)** - Calls `validate()` and `parse()` and sends the result to the dispatcher.
-- **encode(response)** - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs.
+- **encode(response)** - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or `false` if the encoding was unsuccessful.
 - **reply(response)** - If `send()` if defined, calls `encode()` and pipes the result to `send()`.
 
 
