@@ -68,7 +68,36 @@
               {
                 "title": "Exposed Methods",
                 "depth": 2,
-                "id": "exposed-methods"
+                "id": "exposed-methods",
+                "headings": [
+                  {
+                    "title": "Methods that must be implemented",
+                    "depth": 3,
+                    "id": "methods-that-must-be-implemented"
+                  },
+                  {
+                    "title": "Methods present in the base class",
+                    "depth": 3,
+                    "id": "methods-present-in-the-base-class"
+                  }
+                ]
+              },
+              {
+                "title": "Exposed Properties",
+                "depth": 2,
+                "id": "exposed-properties",
+                "headings": [
+                  {
+                    "title": "Getters that must be implemented",
+                    "depth": 3,
+                    "id": "getters-that-must-be-implemented"
+                  },
+                  {
+                    "title": "Getters present in the base class",
+                    "depth": 3,
+                    "id": "getters-present-in-the-base-class"
+                  }
+                ]
               },
               {
                 "title": "Events",
@@ -114,6 +143,11 @@
                     "title": "Emits",
                     "depth": 3,
                     "id": "emits"
+                  },
+                  {
+                    "title": "Listens",
+                    "depth": 3,
+                    "id": "listens"
                   }
                 ]
               }
@@ -233,6 +267,7 @@
     "index.html": {
       "source": "README.md",
       "title": "Iris",
+      "pageTitle": "Iris",
       "slug": "index",
       "headings": [
         {
@@ -249,7 +284,8 @@
     },
     "architecture/overview.html": {
       "source": "docs/architecture/overview.md",
-      "title": "Overview",
+      "title": "Overview - Iris",
+      "pageTitle": "Overview",
       "slug": "architectureoverview",
       "headings": [
         {
@@ -280,7 +316,8 @@
     },
     "architecture/docks.html": {
       "source": "docs/architecture/docks.md",
-      "title": "Docks",
+      "title": "Docks - Iris",
+      "pageTitle": "Docks",
       "slug": "architecturedocks",
       "headings": [
         {
@@ -291,7 +328,36 @@
         {
           "title": "Exposed Methods",
           "depth": 2,
-          "id": "exposed-methods"
+          "id": "exposed-methods",
+          "headings": [
+            {
+              "title": "Methods that must be implemented",
+              "depth": 3,
+              "id": "methods-that-must-be-implemented"
+            },
+            {
+              "title": "Methods present in the base class",
+              "depth": 3,
+              "id": "methods-present-in-the-base-class"
+            }
+          ]
+        },
+        {
+          "title": "Exposed Properties",
+          "depth": 2,
+          "id": "exposed-properties",
+          "headings": [
+            {
+              "title": "Getters that must be implemented",
+              "depth": 3,
+              "id": "getters-that-must-be-implemented"
+            },
+            {
+              "title": "Getters present in the base class",
+              "depth": 3,
+              "id": "getters-present-in-the-base-class"
+            }
+          ]
         },
         {
           "title": "Events",
@@ -314,7 +380,8 @@
     },
     "architecture/dispatcher.html": {
       "source": "docs/architecture/dispatcher.md",
-      "title": "Dispatcher",
+      "title": "Dispatcher - Iris",
+      "pageTitle": "Dispatcher",
       "slug": "architecturedispatcher",
       "headings": [
         {
@@ -336,6 +403,11 @@
               "title": "Emits",
               "depth": 3,
               "id": "emits"
+            },
+            {
+              "title": "Listens",
+              "depth": 3,
+              "id": "listens"
             }
           ]
         }
@@ -343,7 +415,8 @@
     },
     "architecture/hooks.html": {
       "source": "docs/architecture/hooks.md",
-      "title": "Hooks",
+      "title": "Hooks - Iris",
+      "pageTitle": "Hooks",
       "slug": "architecturehooks",
       "headings": [
         {
@@ -372,7 +445,8 @@
     },
     "architecture/handlers.html": {
       "source": "docs/architecture/handlers.md",
-      "title": "Handlers",
+      "title": "Handlers - Iris",
+      "pageTitle": "Handlers",
       "slug": "architecturehandlers",
       "headings": [
         {
@@ -401,7 +475,8 @@
     },
     "architecture/services.html": {
       "source": "docs/architecture/services.md",
-      "title": "Services",
+      "title": "Services - Iris",
+      "pageTitle": "Services",
       "slug": "architectureservices",
       "headings": [
         {
@@ -428,7 +503,8 @@
     },
     "architecture/code.html": {
       "source": "docs/architecture/code.md",
-      "title": "Code",
+      "title": "Code - Iris",
+      "pageTitle": "Code",
       "slug": "architecturecode",
       "headings": [
         {
