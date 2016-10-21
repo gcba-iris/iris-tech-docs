@@ -119,19 +119,19 @@ Example:</li>
 <pre><code class="lang-javascript">{
     <span class="hljs-attr">port</span>: <span class="hljs-number">5000</span>,
     <span class="hljs-attr">parser</span>: {
-        <span class="hljs-attr">subtagSeparator</span>: <span class="pl-s">&apos;|&apos;</span>,
-        <span class="hljs-attr">dataSeparator</span>: <span class="pl-s">&apos;,&apos;</span>
+        <span class="hljs-attr">subtagSeparator</span>: <span class="pl-s">&apos;#&apos;</span>,
+        <span class="hljs-attr">dataSeparator</span>: <span class="pl-s">&apos;.&apos;</span>
     },
     <span class="hljs-attr">encoder</span>: {
-        <span class="hljs-attr">subtagSeparator</span>: <span class="pl-s">&apos;|&apos;</span>,
-        <span class="hljs-attr">dataSeparator</span>: <span class="pl-s">&apos;,&apos;</span>
+        <span class="hljs-attr">subtagSeparator</span>: <span class="pl-s">&apos;#&apos;</span>,
+        <span class="hljs-attr">dataSeparator</span>: <span class="pl-s">&apos;.&apos;</span>
     },
     <span class="hljs-attr">maxMessageLength</span>: <span class="hljs-number">100</span>
 }
 </code></pre>
 <ul>
 <li><strong>port</strong> <em>(integer)</em> - The port to listen to.</li>
-<li><strong>parser</strong> <em>(object, optional)</em> - If you&apos;re using the default parser, you can configure the subtag and data separators.</li>
+<li><strong>parser</strong> <em>(object, optional)</em> - If you&apos;re using the default parser, you can configure the subtag and data separators. The defaults are <code>|</code> for <code>subtagSeparator</code> and <code>,</code> for <code>dataSeparator</code>.</li>
 <li><strong>encoder</strong> <em>(object, optional)</em> - Idem parser.</li>
 <li><strong>maxMessageLength</strong> <em>(integer, optional)</em> - The max length in characters of a message. If not set, the default is <code>300</code>.</li>
 </ul>
