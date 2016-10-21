@@ -6,7 +6,7 @@
 1. Data pours in from multiple sources through the [docks](docks.md). Each dock accounts for a single protocol, and listens to one or more ports.
 2. The dock parses the data and converts it to a standardized javascript object.
 3. The dock sends it to the [dispatcher](dispatcher.md).
-4. The dispatcher looks at the header property and routes the data to the right [handler](handlers.md).
+4. The dispatcher looks at the tag property and routes the data to the right [handler](handlers.md).
 5. As the data makes its way to the handler, the [input hooks](hooks.md) (read-only middlewares) can access it and do stuff with it. But they can't modify it.
 6. The handler process the data, making use of [services](services.md) to persist it, redirect it, etc.
 7. If the handler generates a response, it goes to the dispatcher. If there's no response, the process ends here.
@@ -15,9 +15,9 @@
 9. The dock sends it back to the original device.
 
 
-#### Headers
+#### Tags
 
-Each header in a raw data packet defines a **data flow**. And each data flow is put together by stacking components on a pipeline. It is akin to the request/response cycle in a regular web application. A single data flow is made up of two phases:
+The tag is the first portion of the message sent by a device. A single data packet must contain a tag, and no more than one. The message tag defines a **data flow**. And each data flow is put together by stacking components on a pipeline. It is akin to the request/response cycle in a regular web application. A single data flow is made up of two phases:
 
 ##### Input flow
 
@@ -33,7 +33,7 @@ The response making its way back to the same device. Output hooks are executed a
 
 #### Parsers
 
-While the dock base class will include a generic parser (with configurable data and header delimiters), it must be possible to pass in a custom parser function.
+While the dock base class will include a generic parser (with configurable data and tag delimiters), it must be possible to pass in a custom parser function.
 
 #### Threads
 

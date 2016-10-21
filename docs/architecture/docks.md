@@ -49,6 +49,10 @@ Example:
 - **port** *(integer)* - Returns the configured port.
 - **config** *(string)* - Returns the config object.
 
+### Setters present in the base class
+
+- **config** *(string)* - Sets the config object.
+
 
 ## Events
 

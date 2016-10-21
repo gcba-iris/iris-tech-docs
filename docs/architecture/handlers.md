@@ -5,23 +5,49 @@
 
 ## Description
 
-Processes the data objects sent by the [dispatcher](dispatcher.md). A handler can make use of various [services](services.md) to deal with the data. It can also generate a response, which is passed back to the dispatcher. Said response is a javascript object analogous to the data object that can be serialized and sent by the respective [dock](docks.md). If there's no response, the data flow ends there.
+Processes the data object sent by the [dispatcher](dispatcher.md). A handler can generate a response, which is passed back to the dispatcher. Said response can be a string, an array, an object with a `toString()` method or a javascript object analogous to the `data.message` object. The response will be serialized and sent by the respective [dock](docks.md). If there's no response, the data flow ends there.
 
-A handler belongs to a specific data flow, which in turn is defined by a specific data header. The header is comparable to a MVC route and the handler to a MVC controller: a handler only processes the data that arrives with a certain header. And for each header there's only one handler.
+There can only be a single handler in a data flow, which in turn is defined by a single tag. This means that for each tag there's only one data flow with one handler at the end. The tag is comparable to a MVC route and the handler to a MVC controller: a handler only processes the data that arrives with a certain tag.
 
 Handlers must extend the base Handler class.
 
 
 ## Exposed Methods
 
-- **setup()** - Initializes the handler.
-- **handle()** - Processes the data object.
+### Methods that must be implemented
+
+- **process(data)** - Processes the data object.
+
+### Methods present in the base class
+
+- **handle(data)** - Receives the data from the dispatcher and calls `process()`.
+- **send(reponse)** - Sends the response to the dispatcher.
+
+
+## Exposed Properties
+
+### Getters that must be implemented
+
+- **path** *(string)* - Returns the path of the dock file.
+Example:
+```javascript
+    get path() {
+        return __filename;
+    }
+```
+
+### Getters present in the base class
+
+- **name** *(string)* - Returns the handler name.
+- **config** *(string)* - Returns the config object.
+
+### Setters present in the base class
+
+- **config** *(string)* - Sets the config object.
 
 
 ## Events
 
 ### Emits
 
-- **onData:** Triggered every time the handler receives a new piece of data.
-- **onLoad:** When the handler has been loaded for the first time (initial load).
-- **onReload:** Fired when the handler has been hot reloaded.
+- **data** - Triggered every time the handler receives a new piece of data.

@@ -17,11 +17,11 @@ The user should be able to write custom components, and/or throw in existing one
 
 **3. Statelessness**
 
-The kind of processing a piece of raw data goes through must be dictated only by the headers present in the data itself. Iris shouldn't know a thing about the data source.
+The kind of processing a piece of raw data goes through must be dictated only by the tags present in the data itself. Iris shouldn't know a thing about the data source.
 
 **4. Flexibility**
 
-Iris should support a unique data flow for each header.
+Iris should support a unique data flow for each tag.
 
 **5. Stability**
 

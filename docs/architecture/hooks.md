@@ -5,7 +5,7 @@
 
 ## Description
 
-A hook is just a callback function that gets executed when the data comes in or out the [dispatcher](dispatcher.md) for a given data flow. Multiple hooks can be tied to a data flow, which in turn is tied to a particular header. Each hook can be set to run when the data comes in (input hook) or when the response goes out (output hook).
+A hook is just a callback function that gets executed when the data comes in or out the [dispatcher](dispatcher.md) for a given data flow. Multiple hooks can be tied to a single data flow, which in turn is tied to a single tag. Each hook can be set to run when the data comes in (input hook) or when the response goes out (output hook).
 
 The hooks have read-only access to the data/response objects.
 
@@ -22,5 +22,4 @@ Hooks must extend the base Hook class.
 
 ### Emits
 
-- **onLoad:** When the hook has been loaded for the first time (initial load).
 - **onReload:** Fired when the hook has been hot reloaded.
