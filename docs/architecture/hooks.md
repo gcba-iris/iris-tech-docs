@@ -12,14 +12,46 @@ The hooks have read-only access to the data/response objects.
 Hooks must extend the base Hook class.
 
 
+## Difference with handlers
+
+The handler can generate and return a response. Hooks can run on the response as well on the data.
+
+
 ## Exposed Methods
 
-- **setup()** - Initializes the hook.
-- **run()** - Executes the hook.
+### Methods that must be implemented
+
+- **process(data)** - The hook body, the function that will be executed.
+
+### Methods present in the base class
+
+- **run(data)** - Receives the data from the dispatcher and calls `process()`.
+
+
+## Exposed Properties
+
+### Getters that must be implemented
+
+- **path** *(string)* - Returns the path of the dock file.
+Example:
+```javascript
+    get path() {
+        return __filename;
+    }
+```
+
+### Getters present in the base class
+
+- **name** *(string)* - Returns the handler name.
+- **config** *(string)* - Returns the config object.
+
+### Setters present in the base class
+
+- **config** *(string)* - Sets the config object.
 
 
 ## Events
 
 ### Emits
 
-- **onReload:** Fired when the hook has been hot reloaded.
+- **data** - Triggered every time the hook receives a new piece of data/response.

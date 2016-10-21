@@ -12,6 +12,11 @@ There can only be a single handler in a data flow, which in turn is defined by a
 Handlers must extend the base Handler class.
 
 
+## Difference with hooks
+
+The handler can generate and return a response. Hooks can run on the response as well on the data.
+
+
 ## Exposed Methods
 
 ### Methods that must be implemented
