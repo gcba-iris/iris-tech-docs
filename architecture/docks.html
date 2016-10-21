@@ -84,10 +84,32 @@
 </ul>
 <h3 id="methods-present-in-the-base-class">Methods present in the base class</h3>
 <ul>
-<li><strong>validate(message)</strong> - Validates the message length against the configured max and performs a format check. This method can be overriden if needed.</li>
-<li><strong>parse(data, meta)</strong> - Parses the raw data and converts it to a javascript object. This is a default implementation provided for convenience that can and should be overriden to suit your needs.</li>
+<li><strong>validate(message)</strong> - Validates the message length against the configured max and performs a format check. This method can be overriden if needed. Returns <code>true</code> if valid, <code>false</code> otherwise.</li>
+<li><strong>parse(data, meta)</strong> - Parses the raw data and converts it to a javascript object. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the parsed data object or <code>false</code> if the message couldn&apos;t be parsed.</li>
+</ul>
+<h4 id="structure-of-the-parsed-data-object">Structure of the parsed data object</h4>
+<p>This format is the standard for passing data through Iris components.</p>
+<pre><code class="lang-javascript">    {
+        <span class="hljs-attr">tag</span>:  <span class="pl-c">// A string, the message tag</span>
+        meta:  <span class="pl-c">// An object with additional data, such as the IP address that the message came from</span>
+               <span class="pl-c">// Must be set by the child class</span>
+        data:  <span class="pl-c">// An object with the actual parsed data</span>
+    }
+</code></pre>
+<h5 id="meta-property-example"><code>meta</code> property example</h5>
+<pre><code class="lang-javascript">    meta: {
+        <span class="hljs-attr">ip</span>: <span class="pl-s">&apos;127.0.0.1&apos;</span>
+    }
+</code></pre>
+<h5 id="data-property-example"><code>data</code> property example</h5>
+<pre><code class="lang-javascript">    data: {
+        <span class="hljs-attr">subtag1</span>: [<span class="pl-s">&apos;02&apos;</span>, <span class="pl-s">&apos;56&apos;</span>, <span class="pl-s">&apos;58&apos;</span>, <span class="pl-s">&apos;8&apos;</span>],
+        <span class="hljs-attr">subtag2</span>: [<span class="pl-s">&apos;sds&apos;</span>, <span class="pl-s">&apos;sd&apos;</span>, <span class="pl-s">&apos;wtr&apos;</span>, <span class="pl-s">&apos;ghd&apos;</span>]
+    }
+</code></pre>
+<ul>
 <li><strong>process(message, meta, callback)</strong> - Calls <code>validate()</code> and <code>parse()</code> and sends the result to the dispatcher.</li>
-<li><strong>encode(response)</strong> - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs.</li>
+<li><strong>encode(response)</strong> - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or <code>false</code> if the encoding was unsuccessful.</li>
 <li><strong>reply(response)</strong> - If <code>send()</code> if defined, calls <code>encode()</code> and pipes the result to <code>send()</code>.</li>
 </ul>
 <h2 id="exposed-properties">Exposed Properties</h2>
