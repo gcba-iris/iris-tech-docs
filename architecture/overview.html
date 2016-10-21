@@ -41,8 +41,6 @@
                 </li>
                 <li class="menu-item -level-2"><a class="link title  link-architecturehandlers" href="../architecture/handlers.html">Handlers</a>
                 </li>
-                <li class="menu-item -level-2"><a class="link title  link-architectureservices" href="../architecture/services.html">Services</a>
-                </li>
                 <li class="menu-item -level-2"><a class="link title  link-architecturecode" href="../architecture/code.html">Code</a>
                 </li>
               </ul>
@@ -64,7 +62,7 @@
 <li>The dock sends it to the <a href="dispatcher.html">dispatcher</a>.</li>
 <li>The dispatcher looks at the tag property and routes the data to the right <a href="handlers.html">handler</a>.</li>
 <li>As the data makes its way to the handler, the <a href="hooks.html">input hooks</a> (read-only middlewares) can access it and do stuff with it. But they can&apos;t modify it.</li>
-<li>The handler process the data, making use of <a href="services.html">services</a> to persist it, redirect it, etc.</li>
+<li>The handler process the data, persisting it, redirecting it, etc.</li>
 <li>If the handler generates a response, it goes to the dispatcher. If there&apos;s no response, the process ends here.</li>
 <li>The <a href="hooks.html">output hooks</a> can get their hands on the response and do stuff with it, but without being able to modify it.</li>
 <li>Then the dispatcher gets the response and routes it to the right dock.</li>
@@ -77,7 +75,7 @@
 <h5 id="output-flow">Output flow</h5>
 <p>The response making its way back to the same device. Output hooks are executed along the way. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.</p>
 <h4 id="components">Components</h4>
-<p><strong>Docks</strong>, <strong>hooks</strong>, <strong>handlers</strong> and <strong>services</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container must be used to loosely tie them together.</p>
+<p><strong>Docks</strong>, <strong>hooks</strong> and <strong>handlers</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris. A dependency injection container must be used to loosely tie them together.</p>
 <h4 id="parsers">Parsers</h4>
 <p>While the dock base class will include a generic parser (with configurable data and tag delimiters), it must be possible to pass in a custom parser function.</p>
 <h4 id="threads">Threads</h4>

@@ -297,34 +297,6 @@
             ]
           },
           {
-            "title": "Services",
-            "source": "docs/architecture/services.md",
-            "url": "architecture/services.html",
-            "slug": "architectureservices",
-            "headings": [
-              {
-                "title": "Description",
-                "depth": 2,
-                "id": "description"
-              },
-              {
-                "title": "Exposed Methods",
-                "depth": 2,
-                "id": "exposed-methods"
-              },
-              {
-                "title": "Events",
-                "depth": 2,
-                "id": "events"
-              },
-              {
-                "title": "Configuration",
-                "depth": 2,
-                "id": "configuration"
-              }
-            ]
-          },
-          {
             "title": "Code",
             "source": "docs/architecture/code.md",
             "url": "architecture/code.html",
@@ -639,34 +611,6 @@
         }
       ]
     },
-    "architecture/services.html": {
-      "source": "docs/architecture/services.md",
-      "title": "Services - Iris",
-      "pageTitle": "Services",
-      "slug": "architectureservices",
-      "headings": [
-        {
-          "title": "Description",
-          "depth": 2,
-          "id": "description"
-        },
-        {
-          "title": "Exposed Methods",
-          "depth": 2,
-          "id": "exposed-methods"
-        },
-        {
-          "title": "Events",
-          "depth": 2,
-          "id": "events"
-        },
-        {
-          "title": "Configuration",
-          "depth": 2,
-          "id": "configuration"
-        }
-      ]
-    },
     "architecture/code.html": {
       "source": "docs/architecture/code.md",
       "title": "Code - Iris",
@@ -693,7 +637,6 @@
     "docs/architecture/dispatcher.md": "architecture/dispatcher.html",
     "docs/architecture/hooks.md": "architecture/hooks.html",
     "docs/architecture/handlers.md": "architecture/handlers.html",
-    "docs/architecture/services.md": "architecture/services.html",
     "docs/architecture/code.md": "architecture/code.html"
   }
 }
