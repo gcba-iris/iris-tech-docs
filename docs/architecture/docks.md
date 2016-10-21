@@ -27,6 +27,8 @@ Docks must extend the base Dock class.
 
 #### Structure of the parsed data object
 
+This format is the standard for passing data through Iris components.
+
 ```javascript
     {
         tag:  // A string, the message tag
@@ -36,12 +38,20 @@ Docks must extend the base Dock class.
     }
 ```
 
+##### `meta` property example
+
+```javascript
+    meta: {
+        ip: '127.0.0.1'
+    }
+```
+
 ##### `data` property example
 
 ```javascript
     data: {
-        'subtag1': ['02', '56', '58', '8'],
-        'subtag2': ['sds', 'sd', 'wtr', 'ghd']
+        subtag1: ['02', '56', '58', '8'],
+        subtag2: ['sds', 'sd', 'wtr', 'ghd']
     }
 ```
 
