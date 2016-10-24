@@ -26,4 +26,4 @@ The dispatcher is the only piece of Iris that cannot be customized or swapped of
 
 ### Listens
 
-- **reload** - Hot reloads every module in the threadpool when a change in any of them is detected.
+- **reload** - Hot reloads every module in the threadpool when a change in any of them is detected. If the changed module is a dock, only stops and restarts that dock.
