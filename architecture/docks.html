@@ -145,12 +145,12 @@ Example:</li>
 <pre><code class="lang-javascript">{
     <span class="hljs-attr">port</span>: <span class="hljs-number">5000</span>,
     <span class="hljs-attr">parser</span>: {
-        <span class="hljs-attr">subtagSeparator</span>: <span class="pl-s">&apos;#&apos;</span>,
-        <span class="hljs-attr">dataSeparator</span>: <span class="pl-s">&apos;.&apos;</span>
+        <span class="hljs-attr">subtagSeparator</span>: <span class="pl-s">&apos;#&apos;</span>, <span class="pl-c">// example, default is |</span>
+        dataSeparator: <span class="pl-s">&apos;.&apos;</span> <span class="pl-c">// example, default is ,</span>
     },
     <span class="hljs-attr">encoder</span>: {
-        <span class="hljs-attr">subtagSeparator</span>: <span class="pl-s">&apos;#&apos;</span>,
-        <span class="hljs-attr">dataSeparator</span>: <span class="pl-s">&apos;.&apos;</span>
+        <span class="hljs-attr">subtagSeparator</span>: <span class="pl-s">&apos;#&apos;</span>, <span class="pl-c">// idam parser</span>
+        dataSeparator: <span class="pl-s">&apos;.&apos;</span> <span class="pl-c">// idem parser</span>
     },
     <span class="hljs-attr">maxMessageLength</span>: <span class="hljs-number">100</span>
 }
