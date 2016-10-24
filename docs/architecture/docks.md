@@ -100,12 +100,12 @@ Example:
 {
     port: 5000,
     parser: {
-        subtagSeparator: '#',
-        dataSeparator: '.'
+        subtagSeparator: '#', // example, default is |
+        dataSeparator: '.' // example, default is ,
     },
     encoder: {
-        subtagSeparator: '#',
-        dataSeparator: '.'
+        subtagSeparator: '#', // idam parser
+        dataSeparator: '.' // idem parser
     },
     maxMessageLength: 100
 }
