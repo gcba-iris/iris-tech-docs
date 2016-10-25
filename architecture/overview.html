@@ -58,7 +58,7 @@
 <h3 id="flow">Flow</h3>
 <ol>
 <li>Data pours in from multiple sources through the <a href="docks.html">docks</a>. Each dock accounts for a single protocol, and listens to one port.</li>
-<li>The dock parses the data and converts it to a standardized javascript object.</li>
+<li>The dock parses the data and converts it to a plain javascript object.</li>
 <li>The dock sends it to the <a href="dispatcher.html">dispatcher</a>.</li>
 <li>The dispatcher looks at the tag property and routes the data to the right <a href="handlers.html">handler</a>.</li>
 <li>As the data makes its way to the handler, the <a href="hooks.html">input hooks</a> (read-only middlewares) can access it and do stuff with it. But they can&apos;t modify it.</li>
