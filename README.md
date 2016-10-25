@@ -9,7 +9,7 @@ While Iris' strength lies in swallowing up loads of real-time data, it can also 
 
 **1. Modularity**
 
-Iris should be thought of as a collection of loosely coupled components implementing a clear and well known interface. Must be developed as a series of modules tied together with a dependency injection container.
+Iris should be thought of as a collection of loosely coupled components implementing a clear and well known interface. Must be developed as a series of distinct modules.
 
 **2. Extensibility**
 
