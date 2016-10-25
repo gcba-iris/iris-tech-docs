@@ -4,7 +4,7 @@
 ### Flow
 
 1. Data pours in from multiple sources through the [docks](docks.md). Each dock accounts for a single protocol, and listens to one port.
-2. The dock parses the data and converts it to a standardized javascript object.
+2. The dock parses the data and converts it to a plain javascript object.
 3. The dock sends it to the [dispatcher](dispatcher.md).
 4. The dispatcher looks at the tag property and routes the data to the right [handler](handlers.md).
 5. As the data makes its way to the handler, the [input hooks](hooks.md) (read-only middlewares) can access it and do stuff with it. But they can't modify it.
