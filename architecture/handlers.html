@@ -23,8 +23,6 @@
                 </li>
                 <li class="menu-item -level-2"><a class="link title  link-architecturedispatcher" href="../architecture/dispatcher.html">Dispatcher</a>
                 </li>
-                <li class="menu-item -level-2"><a class="link title  link-architecturehooks" href="../architecture/hooks.html">Hooks</a>
-                </li>
                 <li class="menu-item -level-2"><a class="link title -active link-architecturehandlers" href="../architecture/handlers.html">Handlers</a>
                   <ul class="headings heading-list">
                     <li class="heading-item -depth-2"><a class="hlink link-description" href="#description">Description</a>
@@ -57,6 +55,8 @@
                     </li>
                   </ul>
                 </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturehooks" href="../architecture/hooks.html">Hooks</a>
+                </li>
                 <li class="menu-item -level-2"><a class="link title  link-architecturecode" href="../architecture/code.html">Code</a>
                 </li>
               </ul>
@@ -72,7 +72,7 @@
         <div class="markdown-body"><h1 id="handlers">Handlers</h1>
 <p><img src="https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/handler.png" alt="Handlers"></p>
 <h2 id="description">Description</h2>
-<p>Processes the data object sent by the <a href="dispatcher.html">dispatcher</a>. A handler can generate a response, which is passed back to the dispatcher. Said response can be a string, an array, an object with a <code>toString()</code> method or a javascript object analogous to the <code>data.message</code> object. The response will be serialized and sent by the respective <a href="docks.html">dock</a>. If there&apos;s no response, the data flow ends there.</p>
+<p>Processes the data object received from the <a href="dispatcher.html">dispatcher</a>. A handler can generate a response, which goes back to the dispatcher. Said response can be a string, an array, an object with a <code>toString()</code> method or a javascript object analogous to the <code>data.message</code> object. The response will be serialized and sent by the respective <a href="docks.html">dock</a>. If there&apos;s no response the data flow ends there.</p>
 <p>There can only be a single handler in a data flow, which in turn is defined by a single tag. This means that for each tag there&apos;s only one data flow with one handler at the end. The tag is comparable to a MVC route and the handler to a MVC controller: a handler only processes the data that arrives with a certain tag.</p>
 <p>Handlers must extend the base Handler class.</p>
 <h2 id="difference-with-hooks">Difference with hooks</h2>
@@ -90,13 +90,15 @@
 <h2 id="exposed-properties">Exposed Properties</h2>
 <h3 id="getters-that-must-be-implemented">Getters that must be implemented</h3>
 <ul>
-<li><strong>path</strong> <em>(string)</em> - Returns the path of the dock file.
-Example:</li>
-</ul>
+<li>
+<p><strong>path</strong> <em>(string)</em> - Returns the path of the handler file.</p>
+<h5 id="sample-implementation">Sample implementation</h5>
 <pre><code class="lang-javascript">    get path() {
         <span class="pl-k">return</span> __filename;
     }
 </code></pre>
+</li>
+</ul>
 <h3 id="getters-present-in-the-base-class">Getters present in the base class</h3>
 <ul>
 <li><strong>name</strong> <em>(string)</em> - Returns the handler name.</li>
@@ -107,6 +109,17 @@ Example:</li>
 <li><strong>config</strong> <em>(string)</em> - Sets the config object.</li>
 </ul>
 <h2 id="events">Events</h2>
+<pre><code class="lang-javascript"><span class="pl-k">const</span> handler = <span class="pl-c1">require</span>(<span class="pl-s">&apos;iris-handler-myAwesomeHandler&apos;</span>);
+
+handler.on(<span class="pl-s">&apos;data&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">event</span>)</span>{
+  <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;data&apos;</span>, event.data);
+});
+</code></pre>
+<p>Every <code>event</code> object contains the following properties:</p>
+<ul>
+<li><strong>target</strong> - The handler that triggered the event.</li>
+<li><strong>data</strong> - A data object.</li>
+</ul>
 <h3 id="emits">Emits</h3>
 <ul>
 <li><strong>data</strong> - Triggered every time the handler receives a new piece of data.</li>
@@ -114,8 +127,8 @@ Example:</li>
 
         </div>
         <div class="footer-nav">
-          <div class="left"><a href="../architecture/hooks.html"><span class="title">Hooks</span></a></div>
-          <div class="right"><a href="../architecture/code.html"><span class="label">Next: </span><span class="title">Code</span></a></div>
+          <div class="left"><a href="../architecture/dispatcher.html"><span class="title">Dispatcher</span></a></div>
+          <div class="right"><a href="../architecture/hooks.html"><span class="label">Next: </span><span class="title">Hooks</span></a></div>
         </div>
       </div>
     </div>

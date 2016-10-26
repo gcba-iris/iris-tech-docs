@@ -159,10 +159,10 @@
             ]
           },
           {
-            "title": "Hooks",
-            "source": "docs/architecture/hooks.md",
-            "url": "architecture/hooks.html",
-            "slug": "architecturehooks",
+            "title": "Handlers",
+            "source": "docs/architecture/handlers.md",
+            "url": "architecture/handlers.html",
+            "slug": "architecturehandlers",
             "headings": [
               {
                 "title": "Description",
@@ -170,9 +170,9 @@
                 "id": "description"
               },
               {
-                "title": "Difference with handlers",
+                "title": "Difference with hooks",
                 "depth": 2,
-                "id": "difference-with-handlers"
+                "id": "difference-with-hooks"
               },
               {
                 "title": "Exposed Methods",
@@ -228,10 +228,10 @@
             ]
           },
           {
-            "title": "Handlers",
-            "source": "docs/architecture/handlers.md",
-            "url": "architecture/handlers.html",
-            "slug": "architecturehandlers",
+            "title": "Hooks",
+            "source": "docs/architecture/hooks.md",
+            "url": "architecture/hooks.html",
+            "slug": "architecturehooks",
             "headings": [
               {
                 "title": "Description",
@@ -239,9 +239,9 @@
                 "id": "description"
               },
               {
-                "title": "Difference with hooks",
+                "title": "Difference with handlers",
                 "depth": 2,
-                "id": "difference-with-hooks"
+                "id": "difference-with-handlers"
               },
               {
                 "title": "Exposed Methods",
@@ -473,11 +473,11 @@
         }
       ]
     },
-    "architecture/hooks.html": {
-      "source": "docs/architecture/hooks.md",
-      "title": "Hooks - Iris",
-      "pageTitle": "Hooks",
-      "slug": "architecturehooks",
+    "architecture/handlers.html": {
+      "source": "docs/architecture/handlers.md",
+      "title": "Handlers - Iris",
+      "pageTitle": "Handlers",
+      "slug": "architecturehandlers",
       "headings": [
         {
           "title": "Description",
@@ -485,9 +485,9 @@
           "id": "description"
         },
         {
-          "title": "Difference with handlers",
+          "title": "Difference with hooks",
           "depth": 2,
-          "id": "difference-with-handlers"
+          "id": "difference-with-hooks"
         },
         {
           "title": "Exposed Methods",
@@ -542,11 +542,11 @@
         }
       ]
     },
-    "architecture/handlers.html": {
-      "source": "docs/architecture/handlers.md",
-      "title": "Handlers - Iris",
-      "pageTitle": "Handlers",
-      "slug": "architecturehandlers",
+    "architecture/hooks.html": {
+      "source": "docs/architecture/hooks.md",
+      "title": "Hooks - Iris",
+      "pageTitle": "Hooks",
+      "slug": "architecturehooks",
       "headings": [
         {
           "title": "Description",
@@ -554,9 +554,9 @@
           "id": "description"
         },
         {
-          "title": "Difference with hooks",
+          "title": "Difference with handlers",
           "depth": 2,
-          "id": "difference-with-hooks"
+          "id": "difference-with-handlers"
         },
         {
           "title": "Exposed Methods",
@@ -635,8 +635,8 @@
     "docs/architecture/overview.md": "architecture/overview.html",
     "docs/architecture/docks.md": "architecture/docks.html",
     "docs/architecture/dispatcher.md": "architecture/dispatcher.html",
-    "docs/architecture/hooks.md": "architecture/hooks.html",
     "docs/architecture/handlers.md": "architecture/handlers.html",
+    "docs/architecture/hooks.md": "architecture/hooks.html",
     "docs/architecture/code.md": "architecture/code.html"
   }
 }

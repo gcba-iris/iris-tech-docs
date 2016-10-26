@@ -53,9 +53,9 @@
                 </li>
                 <li class="menu-item -level-2"><a class="link title  link-architecturedispatcher" href="../architecture/dispatcher.html">Dispatcher</a>
                 </li>
-                <li class="menu-item -level-2"><a class="link title  link-architecturehooks" href="../architecture/hooks.html">Hooks</a>
-                </li>
                 <li class="menu-item -level-2"><a class="link title  link-architecturehandlers" href="../architecture/handlers.html">Handlers</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturehooks" href="../architecture/hooks.html">Hooks</a>
                 </li>
                 <li class="menu-item -level-2"><a class="link title  link-architecturecode" href="../architecture/code.html">Code</a>
                 </li>
@@ -72,56 +72,68 @@
         <div class="markdown-body"><h1 id="docks">Docks</h1>
 <p><img src="https://raw.githubusercontent.com/gcba-iris/iris-tech-docs/master/images/architecture/docks.png" alt="Docks"></p>
 <h2 id="description">Description</h2>
-<p>Listens to one or more ports for incoming raw data through a specific protocol and parses and converts it to a javascript object. Then passes this object along to the <a href="dispatcher.html">dispatcher</a>. If a response comes back, the dock serializes it and sends it off to the original device.</p>
-<p>More that one dock can be arranged for a single protocol, provided that they listen to different ports.</p>
+<p>Listens to a single port for incoming messages through a specific protocol and parses it into a plain javascript object. Then passes this object along to the <a href="dispatcher.html">dispatcher</a>. If a response comes back, the dock serializes it to match the message format and sends it off to the original device.</p>
 <p>Docks must extend the base Dock class.</p>
 <h2 id="exposed-methods">Exposed Methods</h2>
 <h3 id="methods-that-must-be-implemented">Methods that must be implemented</h3>
 <ul>
-<li><strong>listen()</strong> - Starts listening to the configured port.</li>
+<li><strong>listen()</strong> - Starts listening to the configured port. Should call <code>process()</code>.</li>
 <li><strong>stop()</strong> - Stops listening to the port.</li>
 <li><strong>send(response)</strong> <em>(optional)</em> - Sends the response to the original device.</li>
 </ul>
 <h3 id="methods-present-in-the-base-class">Methods present in the base class</h3>
 <ul>
-<li><strong>validate(message)</strong> - Validates the message length against the configured max and performs a format check. This method can be overriden if needed. Returns <code>true</code> if valid, <code>false</code> otherwise.</li>
-<li><strong>parse(data, meta)</strong> - Parses the raw data and converts it to a javascript object. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the parsed data object or <code>false</code> if the message couldn&apos;t be parsed.</li>
-</ul>
-<h4 id="structure-of-the-parsed-data-object">Structure of the parsed data object</h4>
+<li>
+<p><strong>validate(message)</strong> - Validates the message length against the configured max and performs a format check. This method can be overriden if needed. Returns <code>true</code> if valid, <code>false</code> otherwise.</p>
+</li>
+<li>
+<p><strong>parse(data, meta)</strong> - Parses the message and converts it to a javascript object. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the parsed data object or <code>false</code> if the message couldn&apos;t be parsed.</p>
+<h5 id="sample-message">Sample message</h5>
+<pre><code>tag1|subtag1|02,56,58,8|subtag2|sds,sd,wtr,ghd
+</code></pre>
+<h5 id="structure-of-the-parsed-data-object">Structure of the parsed data object</h5>
 <p>This format is the standard for passing data through Iris components.</p>
 <pre><code class="lang-javascript">    {
         <span class="hljs-attr">tag</span>:  <span class="pl-c">// A string, the message tag</span>
         meta:  <span class="pl-c">// An object with additional data, such as the IP address that the message came from</span>
-               <span class="pl-c">// Must be set by the child class</span>
+            <span class="pl-c">// Must be set by the child class</span>
         data:  <span class="pl-c">// An object with the actual parsed data</span>
     }
 </code></pre>
-<h5 id="meta-property-example"><code>meta</code> property example</h5>
+<h5 id="sample-meta-property">Sample <code>meta</code> property</h5>
 <pre><code class="lang-javascript">    meta: {
         <span class="hljs-attr">ip</span>: <span class="pl-s">&apos;127.0.0.1&apos;</span>
     }
 </code></pre>
-<h5 id="data-property-example"><code>data</code> property example</h5>
+<h5 id="sample-data-property">Sample <code>data</code> property</h5>
 <pre><code class="lang-javascript">    data: {
         <span class="hljs-attr">subtag1</span>: [<span class="pl-s">&apos;02&apos;</span>, <span class="pl-s">&apos;56&apos;</span>, <span class="pl-s">&apos;58&apos;</span>, <span class="pl-s">&apos;8&apos;</span>],
         <span class="hljs-attr">subtag2</span>: [<span class="pl-s">&apos;sds&apos;</span>, <span class="pl-s">&apos;sd&apos;</span>, <span class="pl-s">&apos;wtr&apos;</span>, <span class="pl-s">&apos;ghd&apos;</span>]
     }
 </code></pre>
-<ul>
-<li><strong>process(message, meta, callback)</strong> - Calls <code>validate()</code> and <code>parse()</code> and sends the result to the dispatcher.</li>
-<li><strong>encode(response)</strong> - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or <code>false</code> if the encoding was unsuccessful.</li>
-<li><strong>reply(response)</strong> - If <code>send()</code> if defined, calls <code>encode()</code> and pipes the result to <code>send()</code>.</li>
+</li>
+<li>
+<p><strong>process(message, meta, callback)</strong> - Calls <code>validate()</code> and <code>parse()</code> and sends the result to the dispatcher. Should be called by <code>listen()</code>.</p>
+</li>
+<li>
+<p><strong>encode(response)</strong> - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or <code>false</code> if the encoding was unsuccessful.</p>
+</li>
+<li>
+<p><strong>reply(response)</strong> - If <code>send()</code> if defined, calls <code>encode()</code> and pipes the result to <code>send()</code>.</p>
+</li>
 </ul>
 <h2 id="exposed-properties">Exposed Properties</h2>
 <h3 id="getters-that-must-be-implemented">Getters that must be implemented</h3>
 <ul>
-<li><strong>path</strong> <em>(string)</em> - Returns the path of the dock file.
-Example:</li>
-</ul>
+<li>
+<p><strong>path</strong> <em>(string)</em> - Returns the path of the dock file.</p>
+<h5 id="sample-implementation">Sample implementation</h5>
 <pre><code class="lang-javascript">    get path() {
         <span class="pl-k">return</span> __filename;
     }
 </code></pre>
+</li>
+</ul>
 <h3 id="getters-present-in-the-base-class">Getters present in the base class</h3>
 <ul>
 <li><strong>id</strong> <em>(string)</em> - Returns the dock id, an unique string that is autogenerated every time the app runs.</li>
@@ -135,6 +147,17 @@ Example:</li>
 <li><strong>config</strong> <em>(string)</em> - Sets the config object.</li>
 </ul>
 <h2 id="events">Events</h2>
+<pre><code class="lang-javascript"><span class="pl-k">const</span> dock = <span class="pl-c1">require</span>(<span class="pl-s">&apos;iris-dock-myAwesomeDock&apos;</span>);
+
+dock.on(<span class="pl-s">&apos;data&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">event</span>)</span>{
+  <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;data&apos;</span>, event.data);
+});
+</code></pre>
+<p>Every <code>event</code> object contains the following properties:</p>
+<ul>
+<li><strong>target</strong> - The dock that triggered the event.</li>
+<li><strong>data</strong> - A data object.</li>
+</ul>
 <h3 id="emits">Emits</h3>
 <ul>
 <li><strong>data</strong> - Triggered every time the dock receives a new message. Gives the handler access to the raw, unprocessed data. Useful to proxy it somewhere else.</li>
