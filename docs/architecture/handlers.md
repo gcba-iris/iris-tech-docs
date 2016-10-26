@@ -5,7 +5,7 @@
 
 ## Description
 
-Processes the data object sent by the [dispatcher](dispatcher.md). A handler can generate a response, which is passed back to the dispatcher. Said response can be a string, an array, an object with a `toString()` method or a javascript object analogous to the `data.message` object. The response will be serialized and sent by the respective [dock](docks.md). If there's no response, the data flow ends there.
+Processes the data object received from the [dispatcher](dispatcher.md). A handler can generate a response, which goes back to the dispatcher. Said response can be a string, an array, an object with a `toString()` method or a javascript object analogous to the `data.message` object. The response will be serialized and sent by the respective [dock](docks.md). If there's no response the data flow ends there.
 
 There can only be a single handler in a data flow, which in turn is defined by a single tag. This means that for each tag there's only one data flow with one handler at the end. The tag is comparable to a MVC route and the handler to a MVC controller: a handler only processes the data that arrives with a certain tag.
 
@@ -33,13 +33,15 @@ The handler can generate and return a response. Hooks can run on the response as
 
 ### Getters that must be implemented
 
-- **path** *(string)* - Returns the path of the dock file.
-Example:
-```javascript
-    get path() {
-        return __filename;
-    }
-```
+- **path** *(string)* - Returns the path of the handler file.
+
+    ##### Sample implementation
+
+    ```javascript
+        get path() {
+            return __filename;
+        }
+    ```
 
 ### Getters present in the base class
 
@@ -52,6 +54,19 @@ Example:
 
 
 ## Events
+
+```javascript
+const handler = require('iris-handler-myAwesomeHandler');
+
+handler.on('data', function(event){
+  console.log('data', event.data);
+});
+````
+
+Every `event` object contains the following properties:
+
+- **target** - The handler that triggered the event.
+- **data** - A data object.
 
 ### Emits
 

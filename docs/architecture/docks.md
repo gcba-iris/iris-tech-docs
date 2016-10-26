@@ -5,9 +5,7 @@
 
 ## Description
 
-Listens to one or more ports for incoming raw data through a specific protocol and parses and converts it to a javascript object. Then passes this object along to the [dispatcher](dispatcher.md). If a response comes back, the dock serializes it and sends it off to the original device.
-
-More that one dock can be arranged for a single protocol, provided that they listen to different ports.
+Listens to a single port for incoming messages through a specific protocol and parses it into a plain javascript object. Then passes this object along to the [dispatcher](dispatcher.md). If a response comes back, the dock serializes it to match the message format and sends it off to the original device.
 
 Docks must extend the base Dock class.
 
@@ -16,46 +14,52 @@ Docks must extend the base Dock class.
 
 ### Methods that must be implemented
 
-- **listen()** - Starts listening to the configured port.
+- **listen()** - Starts listening to the configured port. Should call `process()`.
 - **stop()** - Stops listening to the port.
 - **send(response)** *(optional)* - Sends the response to the original device.
 
 ### Methods present in the base class
 
 - **validate(message)** - Validates the message length against the configured max and performs a format check. This method can be overriden if needed. Returns `true` if valid, `false` otherwise.
-- **parse(data, meta)** - Parses the raw data and converts it to a javascript object. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the parsed data object or `false` if the message couldn't be parsed.
+- **parse(data, meta)** - Parses the message and converts it to a javascript object. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the parsed data object or `false` if the message couldn't be parsed.
 
-#### Structure of the parsed data object
+    ##### Sample message
 
-This format is the standard for passing data through Iris components.
+    ```
+    tag1|subtag1|02,56,58,8|subtag2|sds,sd,wtr,ghd
+    ```
 
-```javascript
-    {
-        tag:  // A string, the message tag
-        meta:  // An object with additional data, such as the IP address that the message came from
-               // Must be set by the child class
-        data:  // An object with the actual parsed data
-    }
-```
+    ##### Structure of the parsed data object
 
-##### `meta` property example
+    This format is the standard for passing data through Iris components.
 
-```javascript
-    meta: {
-        ip: '127.0.0.1'
-    }
-```
+    ```javascript
+        {
+            tag:  // A string, the message tag
+            meta:  // An object with additional data, such as the IP address that the message came from
+                // Must be set by the child class
+            data:  // An object with the actual parsed data
+        }
+    ```
 
-##### `data` property example
+    ##### Sample `meta` property
 
-```javascript
-    data: {
-        subtag1: ['02', '56', '58', '8'],
-        subtag2: ['sds', 'sd', 'wtr', 'ghd']
-    }
-```
+    ```javascript
+        meta: {
+            ip: '127.0.0.1'
+        }
+    ```
 
-- **process(message, meta, callback)** - Calls `validate()` and `parse()` and sends the result to the dispatcher.
+    ##### Sample `data` property
+
+    ```javascript
+        data: {
+            subtag1: ['02', '56', '58', '8'],
+            subtag2: ['sds', 'sd', 'wtr', 'ghd']
+        }
+    ```
+
+- **process(message, meta, callback)** - Calls `validate()` and `parse()` and sends the result to the dispatcher. Should be called by `listen()`.
 - **encode(response)** - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or `false` if the encoding was unsuccessful.
 - **reply(response)** - If `send()` if defined, calls `encode()` and pipes the result to `send()`.
 
@@ -65,12 +69,14 @@ This format is the standard for passing data through Iris components.
 ### Getters that must be implemented
 
 - **path** *(string)* - Returns the path of the dock file.
-Example:
-```javascript
-    get path() {
-        return __filename;
-    }
-```
+
+    ##### Sample implementation
+
+    ```javascript
+        get path() {
+            return __filename;
+        }
+    ```
 
 ### Getters present in the base class
 
@@ -86,6 +92,19 @@ Example:
 
 
 ## Events
+
+```javascript
+const dock = require('iris-dock-myAwesomeDock');
+
+dock.on('data', function(event){
+  console.log('data', event.data);
+});
+```
+
+Every `event` object contains the following properties:
+
+- **target** - The dock that triggered the event.
+- **data** - A data object.
 
 ### Emits
 
