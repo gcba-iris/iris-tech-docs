@@ -59,7 +59,7 @@ Docks must extend the base Dock class.
         }
     ```
 
-- **process(message, meta, callback)** - Calls `validate()` and `parse()` and sends the result to the dispatcher. Should be called by `listen()`.
+- **process(message, meta, callback)** - Calls `validate()` and `parse()` and sends the result to the dispatcher. Should be called by `listen()`. The callback will be called with the response if the handler produces one.
 - **encode(response)** - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or `false` if the encoding was unsuccessful.
 - **reply(response)** - If `send()` if defined, calls `encode()` and pipes the result to `send()`.
 
