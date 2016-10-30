@@ -113,7 +113,7 @@
 </code></pre>
 </li>
 <li>
-<p><strong>process(message, meta, callback)</strong> - Calls <code>validate()</code> and <code>parse()</code> and sends the result to the dispatcher. Should be called by <code>listen()</code>.</p>
+<p><strong>process(message, meta, callback)</strong> - Calls <code>validate()</code> and <code>parse()</code> and sends the result to the dispatcher. Should be called by <code>listen()</code>. The callback will be called with the response if the handler produces one.</p>
 </li>
 <li>
 <p><strong>encode(response)</strong> - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or <code>false</code> if the encoding was unsuccessful.</p>
