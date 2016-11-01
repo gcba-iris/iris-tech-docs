@@ -89,9 +89,9 @@ Example:
 
 ### Emits
 
-- **data** - Triggered every time the dock receives a new message. Gives the handler access to the raw, unprocessed data. Useful to proxy it somewhere else.
-- **response** - When the dock receives a response from the dispatcher.
-- **invalidMessage** - Triggered when a message does not pass `validate()` filters, or when the message either is not a string, or does not have a `toString()` method.
+- **data-*hookname*** - Triggered every time the dock receives a new message. Gives the handler access to the raw, unprocessed data. Useful to proxy it somewhere else.
+- **response-*hookname*** - When the dock receives a response from the dispatcher.
+- **invalidMessage-*hookname*** - Triggered when a message does not pass `validate()` filters, or when the message either is not a string, or does not have a `toString()` method.
 
 
 ## Configuration

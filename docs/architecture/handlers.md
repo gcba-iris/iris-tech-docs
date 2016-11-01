@@ -55,4 +55,4 @@ Example:
 
 ### Emits
 
-- **data** - Triggered every time the handler receives a new piece of data.
+- **data-*handlername*** - Triggered every time the handler receives a new piece of data.

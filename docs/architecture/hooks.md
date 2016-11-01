@@ -52,4 +52,4 @@ Example:
 
 ### Emits
 
-- **data** - Triggered every time the hook receives a new piece of data/response.
+- **data-*handlername*** - Triggered every time the hook receives a new piece of data/response.
