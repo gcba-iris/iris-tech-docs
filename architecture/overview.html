@@ -81,9 +81,9 @@
 <h4 id="tags">Tags</h4>
 <p>The tag is the first portion of the message sent by a device. A single data packet must contain a tag, and no more than one. The message tag defines a <strong>data flow</strong>. And each data flow is put together by stacking components on a pipeline. It is akin to the request/response cycle in a regular web application. A single data flow is made up of two phases:</p>
 <h5 id="input-flow">Input flow</h5>
-<p>Represents the path a piece of raw data takes from the device to a single handler. Input hooks are executed along the way.</p>
+<p>Represents the path a piece of raw data takes from the device to a single handler. Input hooks are executed in parallel.</p>
 <h5 id="output-flow">Output flow</h5>
-<p>The response making its way back to the original device. Output hooks are executed along the way. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.</p>
+<p>The response making its way back to the original device. Output hooks are executed in parallel. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.</p>
 <h4 id="components">Components</h4>
 <p><strong>Docks</strong>, <strong>hooks</strong> and <strong>handlers</strong> can be third-party packages or custom code. They should all be hot-swappable, and reload automatically on change without restarting Iris.</p>
 <h4 id="parsers">Parsers</h4>
