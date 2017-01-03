@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=615badd5">
+    <script src="../assets/script.js?t=36f3d457"></script>
+    <title>Writing Plugins - Iris</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a class="link title  link-index" href="../index.html">Iris</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Usage</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-usagegetting-started" href="../usage/getting-started.html">Getting Started</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-usagecli" href="../usage/cli.html">CLI</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title -active link-usagewriting-plugins" href="../usage/writing-plugins.html">Writing Plugins</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a class="hlink link-docks" href="#docks">Docks</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-sample-http-dock" href="#sample-http-dock">Sample HTTP dock</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-handlers" href="#handlers">Handlers</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-sample-handler" href="#sample-handler">Sample handler</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-hooks" href="#hooks">Hooks</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-sample-hook" href="#sample-hook">Sample hook</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-utilities" href="#utilities">Utilities</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-logger" href="#logger">Logger</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-architectureoverview" href="../architecture/overview.html">Overview</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturedocks" href="../architecture/docks.html">Docks</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturedispatcher" href="../architecture/dispatcher.html">Dispatcher</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturehandlers" href="../architecture/handlers.html">Handlers</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturehooks" href="../architecture/hooks.html">Hooks</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturecode" href="../architecture/code.html">Code</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div class="body page-usagewriting-plugins">
+        <div class="header-nav">
+          <div class="right">
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="writing-plugins">Writing Plugins</h1>
+<p>Plugins are javascript files or npm packages that get required in the Irisfile. All plugins extend some base class.</p>
+<h2 id="docks">Docks</h2>
+<p>You must implement <code>get path()</code>, <code>listen()</code> and <code>stop()</code>. <code>send()</code> is optional.</p>
+<ul>
+<li><strong>get path():</strong> returns the dock path in the filesystem.</li>
+<li><strong>listen():</strong> starts listening at the configured port.</li>
+<li><strong>stop():</strong> stops listening.</li>
+<li><strong>send(response):</strong> sends the response to the device.</li>
+</ul>
+<p>Take a look at the <a href="../architecture/docks.html">base class</a> for a list of the available methods and events, like <code>this.process()</code>.</p>
+<h3 id="sample-http-dock">Sample HTTP dock</h3>
+<pre><code class="lang-javascript"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="pl-k">const</span> Dock = <span class="pl-c1">require</span>(<span class="pl-s">&apos;iris&apos;</span>).Dock;
+<span class="pl-k">const</span> http = <span class="pl-c1">require</span>(<span class="pl-s">&apos;http&apos;</span>);
+<span class="pl-k">const</span> requestIp = <span class="pl-c1">require</span>(<span class="pl-s">&apos;request-ip&apos;</span>);
+
+<span class="hljs-class"><span class="pl-k">class</span> <span class="pl-ent">HTTPDock</span> <span class="pl-k">extends</span> <span class="pl-ent">Dock</span> </span>{
+    <span class="pl-k">constructor</span>(name, protocol) {
+        <span class="pl-k">super</span>(name, protocol);
+
+        <span class="pl-k">this</span>._server = <span class="pl-c1">null</span>;
+        <span class="pl-k">this</span>._listening = <span class="pl-c1">false</span>;
+    }
+
+    get path() {
+        <span class="pl-k">return</span> __filename;
+    }
+
+    listen() {
+        <span class="pl-k">this</span>._server = http.createServer(<span class="pl-k">this</span>._handleRequest.bind(<span class="pl-k">this</span>));
+
+        <span class="pl-k">if</span> (!<span class="pl-k">this</span>._listening) {
+            <span class="pl-k">this</span>._server.listen(<span class="pl-k">this</span>.config.port, () =&gt; {
+                <span class="pl-k">this</span>._listening = <span class="pl-c1">true</span>;
+                <span class="pl-k">this</span>.logger.info(<span class="pl-s">&apos;[HTTP Dock] Listening on port &apos;</span> + <span class="pl-k">this</span>.config.port + <span class="pl-s">&apos;...&apos;</span>);
+            });
+        }
+    }
+
+    stop() {
+        <span class="pl-k">if</span> (<span class="pl-k">this</span>._listening) {
+            <span class="pl-k">this</span>._server.close();
+            <span class="pl-k">this</span>._listening = <span class="pl-c1">false</span>;
+            <span class="pl-k">this</span>.logger.info(<span class="pl-s">&apos;[HTTP Dock] Stopped listening&apos;</span>);
+        }
+    }
+
+    _handleRequest(request, response) {
+        <span class="pl-k">const</span> chunks = [];
+        <span class="pl-k">const</span> meta = {
+            <span class="hljs-attr">ip</span>: requestIp.getClientIp(request)
+        };
+
+        request.on(<span class="pl-s">&apos;data&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span> (<span class="hljs-params">chunk</span>) </span>{
+            chunks.push(chunk);
+        });
+
+        request.on(<span class="pl-s">&apos;end&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="pl-k">const</span> data = Buffer.concat(chunks);
+
+            <span class="pl-k">this</span>.process(data, meta, (message) =&gt; {
+                response.statusCode = <span class="hljs-number">200</span>;
+
+                <span class="pl-k">if</span> (message) {
+                    response.write(message);
+                    <span class="pl-k">this</span>.logger.verbose(<span class="pl-s">&apos;Sent response to client&apos;</span>);
+                } <span class="pl-k">else</span> response.end();
+            });
+        }.bind(<span class="pl-k">this</span>));
+    }
+}
+
+<span class="pl-c1">module</span>.exports = <span class="pl-k">new</span> HTTPDock(<span class="pl-s">&apos;http&apos;</span>, <span class="pl-s">&apos;HTTP&apos;</span>);
+</code></pre>
+<h2 id="handlers">Handlers</h2>
+<p>You must implement <code>get path()</code> and <code>handle()</code>.</p>
+<ul>
+<li><strong>get path():</strong> returns the handler path in the filesystem.</li>
+<li><strong>handle(data):</strong> does with the data whatever the handler was meant to do.</li>
+</ul>
+<p>Take a look at the <a href="../architecture/handlers.html">base class</a> for a list of the available methods and events.</p>
+<h3 id="sample-handler">Sample handler</h3>
+<pre><code class="lang-javascript"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="pl-k">const</span> Handler = <span class="pl-c1">require</span>(<span class="pl-s">&apos;iris&apos;</span>).Handler;
+
+<span class="hljs-class"><span class="pl-k">class</span> <span class="pl-ent">Handler1</span> <span class="pl-k">extends</span> <span class="pl-ent">Handler</span> </span>{
+    <span class="pl-k">constructor</span>(name) {
+        <span class="pl-k">super</span>(name);
+    }
+
+    get path() {
+        <span class="pl-k">return</span> __filename;
+    }
+
+    handle(data) {
+        <span class="pl-k">this</span>.logger.info(<span class="pl-s">&apos;[Handler1] Handling data...&apos;</span>);
+
+        <span class="pl-k">return</span> <span class="pl-s">&apos;A response&apos;</span>;
+    }
+}
+
+<span class="pl-c1">module</span>.exports = <span class="pl-k">new</span> Handler1(<span class="pl-s">&apos;handler1&apos;</span>);
+</code></pre>
+<h2 id="hooks">Hooks</h2>
+<p>You must implement <code>get path()</code> and <code>process()</code>.</p>
+<ul>
+<li><strong>get path():</strong> returns the hook path in the filesystem.</li>
+<li><strong>process(data):</strong> does with the data whatever the hook was meant to do.</li>
+</ul>
+<p>Take a look at the <a href="../architecture/hooks.html">base class</a> for a list of the available methods and events.</p>
+<h3 id="sample-hook">Sample hook</h3>
+<pre><code class="lang-javascript"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="pl-k">const</span> Hook = <span class="pl-c1">require</span>(<span class="pl-s">&apos;iris&apos;</span>).Hook;
+
+<span class="hljs-class"><span class="pl-k">class</span> <span class="pl-ent">Hook1</span> <span class="pl-k">extends</span> <span class="pl-ent">Hook</span> </span>{
+    <span class="pl-k">constructor</span>(name) {
+        <span class="pl-k">super</span>(name);
+    }
+
+    get path() {
+        <span class="pl-k">return</span> __filename;
+    }
+
+    process(data) {
+        <span class="pl-k">this</span>.logger.info(<span class="pl-s">&apos;[Hook1] Running...&apos;</span>);
+    }
+
+}
+
+<span class="pl-c1">module</span>.exports = <span class="pl-k">new</span> Hook1(<span class="pl-s">&apos;hook1&apos;</span>);
+</code></pre>
+<h2 id="utilities">Utilities</h2>
+<h3 id="logger">Logger</h3>
+<p>Iris exposes a <a href="https://github.com/winstonjs/winston">Winston</a> instance at several points, available for full use and configuration:</p>
+<ul>
+<li><strong>At each base class:</strong> for plugins&apos;s use. Accesible at <code>this.logger</code>.</li>
+<li><strong>At the Iris instance itself:</strong> for Irisfile and other scripts&apos;s use. Accesible at <code>iris.logger</code>.</li>
+</ul>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../usage/cli.html"><span class="title">CLI</span></a></div>
+          <div class="right"><a href="../architecture/overview.html"><span class="label">Next: </span><span class="title">Overview</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

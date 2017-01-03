@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/style.css?t=d358ee59">
+    <link rel="stylesheet" href="../assets/style.css?t=615badd5">
     <script src="../assets/script.js?t=36f3d457"></script>
     <title>Hooks - Iris</title>
     <meta name="viewport" content="width=device-width">
@@ -14,6 +14,16 @@
         <li class="menu-item -level-0 -parent">
           <ul class="submenu">
             <li class="menu-item -level-1"><a class="link title  link-index" href="../index.html">Iris</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Usage</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-usagegetting-started" href="../usage/getting-started.html">Getting Started</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-usagecli" href="../usage/cli.html">CLI</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-usagewriting-plugins" href="../usage/writing-plugins.html">Writing Plugins</a>
+                </li>
+              </ul>
             </li>
             <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
               <ul class="submenu">
@@ -107,21 +117,21 @@
 <li><strong>config</strong> <em>(string)</em> - Sets the config object.</li>
 </ul>
 <h2 id="events">Events</h2>
-<pre><code class="lang-javascript">const hook = require(&apos;iris-hook-myAwesomeHook&apos;);
+<pre><code class="lang-javascript"><span class="pl-k">const</span> hook = <span class="pl-c1">require</span>(<span class="pl-s">&apos;iris-hook-myAwesomeHook&apos;</span>);
 
-hook.on(&apos;data&apos;, function(event){
-  console.log(&apos;data&apos;, event.data);
+hook.on(<span class="pl-s">&apos;data&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">event</span>)</span>{
+  <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;data&apos;</span>, event.data);
 });
-
-
-Every `event` object contains the following properties:
-
-- **target** - The hook that triggered the event.
-- **data** - A data object.
-
-### Emits
-
-- **data** - Triggered every time the hook receives a new piece of data/response.</code></pre>
+</code></pre>
+<p>Every <code>event</code> object contains the following properties:</p>
+<ul>
+<li><strong>target</strong> - The hook that triggered the event.</li>
+<li><strong>data</strong> - A data object.</li>
+</ul>
+<h3 id="emits">Emits</h3>
+<ul>
+<li><strong>data-<em>hookname</em></strong> - Triggered every time the hook receives a new piece of data/response.</li>
+</ul>
 
         </div>
         <div class="footer-nav">

@@ -20,6 +20,122 @@
         ]
       },
       {
+        "title": "Usage",
+        "sections": [
+          {
+            "title": "Getting Started",
+            "source": "docs/usage/getting-started.md",
+            "url": "usage/getting-started.html",
+            "slug": "usagegetting-started",
+            "headings": [
+              {
+                "title": "1. Create an empty project",
+                "depth": 2,
+                "id": "1.-create-an-empty-project",
+                "headings": [
+                  {
+                    "title": "Existing project",
+                    "depth": 3,
+                    "id": "existing-project"
+                  }
+                ]
+              },
+              {
+                "title": "2. Add flows",
+                "depth": 2,
+                "id": "2.-add-flows",
+                "headings": [
+                  {
+                    "title": "Method signature",
+                    "depth": 3,
+                    "id": "method-signature"
+                  },
+                  {
+                    "title": "Sample irisfile.js",
+                    "depth": 3,
+                    "id": "sample-irisfile.js"
+                  }
+                ]
+              },
+              {
+                "title": "3. Run flows",
+                "depth": 2,
+                "id": "3.-run-flows"
+              }
+            ]
+          },
+          {
+            "title": "CLI",
+            "source": "docs/usage/cli.md",
+            "url": "usage/cli.html",
+            "slug": "usagecli",
+            "headings": [
+              {
+                "title": "Commands",
+                "depth": 2,
+                "id": "commands"
+              }
+            ]
+          },
+          {
+            "title": "Writing Plugins",
+            "source": "docs/usage/writing-plugins.md",
+            "url": "usage/writing-plugins.html",
+            "slug": "usagewriting-plugins",
+            "headings": [
+              {
+                "title": "Docks",
+                "depth": 2,
+                "id": "docks",
+                "headings": [
+                  {
+                    "title": "Sample HTTP dock",
+                    "depth": 3,
+                    "id": "sample-http-dock"
+                  }
+                ]
+              },
+              {
+                "title": "Handlers",
+                "depth": 2,
+                "id": "handlers",
+                "headings": [
+                  {
+                    "title": "Sample handler",
+                    "depth": 3,
+                    "id": "sample-handler"
+                  }
+                ]
+              },
+              {
+                "title": "Hooks",
+                "depth": 2,
+                "id": "hooks",
+                "headings": [
+                  {
+                    "title": "Sample hook",
+                    "depth": 3,
+                    "id": "sample-hook"
+                  }
+                ]
+              },
+              {
+                "title": "Utilities",
+                "depth": 2,
+                "id": "utilities",
+                "headings": [
+                  {
+                    "title": "Logger",
+                    "depth": 3,
+                    "id": "logger"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "Architecture",
         "sections": [
           {
@@ -337,6 +453,117 @@
         }
       ]
     },
+    "usage/getting-started.html": {
+      "source": "docs/usage/getting-started.md",
+      "title": "Getting Started - Iris",
+      "pageTitle": "Getting Started",
+      "slug": "usagegetting-started",
+      "headings": [
+        {
+          "title": "1. Create an empty project",
+          "depth": 2,
+          "id": "1.-create-an-empty-project",
+          "headings": [
+            {
+              "title": "Existing project",
+              "depth": 3,
+              "id": "existing-project"
+            }
+          ]
+        },
+        {
+          "title": "2. Add flows",
+          "depth": 2,
+          "id": "2.-add-flows",
+          "headings": [
+            {
+              "title": "Method signature",
+              "depth": 3,
+              "id": "method-signature"
+            },
+            {
+              "title": "Sample irisfile.js",
+              "depth": 3,
+              "id": "sample-irisfile.js"
+            }
+          ]
+        },
+        {
+          "title": "3. Run flows",
+          "depth": 2,
+          "id": "3.-run-flows"
+        }
+      ]
+    },
+    "usage/cli.html": {
+      "source": "docs/usage/cli.md",
+      "title": "CLI - Iris",
+      "pageTitle": "CLI",
+      "slug": "usagecli",
+      "headings": [
+        {
+          "title": "Commands",
+          "depth": 2,
+          "id": "commands"
+        }
+      ]
+    },
+    "usage/writing-plugins.html": {
+      "source": "docs/usage/writing-plugins.md",
+      "title": "Writing Plugins - Iris",
+      "pageTitle": "Writing Plugins",
+      "slug": "usagewriting-plugins",
+      "headings": [
+        {
+          "title": "Docks",
+          "depth": 2,
+          "id": "docks",
+          "headings": [
+            {
+              "title": "Sample HTTP dock",
+              "depth": 3,
+              "id": "sample-http-dock"
+            }
+          ]
+        },
+        {
+          "title": "Handlers",
+          "depth": 2,
+          "id": "handlers",
+          "headings": [
+            {
+              "title": "Sample handler",
+              "depth": 3,
+              "id": "sample-handler"
+            }
+          ]
+        },
+        {
+          "title": "Hooks",
+          "depth": 2,
+          "id": "hooks",
+          "headings": [
+            {
+              "title": "Sample hook",
+              "depth": 3,
+              "id": "sample-hook"
+            }
+          ]
+        },
+        {
+          "title": "Utilities",
+          "depth": 2,
+          "id": "utilities",
+          "headings": [
+            {
+              "title": "Logger",
+              "depth": 3,
+              "id": "logger"
+            }
+          ]
+        }
+      ]
+    },
     "architecture/overview.html": {
       "source": "docs/architecture/overview.md",
       "title": "Overview - Iris",
@@ -632,6 +859,9 @@
   },
   "sources": {
     "README.md": "index.html",
+    "docs/usage/getting-started.md": "usage/getting-started.html",
+    "docs/usage/cli.md": "usage/cli.html",
+    "docs/usage/writing-plugins.md": "usage/writing-plugins.html",
     "docs/architecture/overview.md": "architecture/overview.html",
     "docs/architecture/docks.md": "architecture/docks.html",
     "docs/architecture/dispatcher.md": "architecture/dispatcher.html",

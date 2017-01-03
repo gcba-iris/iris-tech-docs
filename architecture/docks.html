@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/style.css?t=d358ee59">
+    <link rel="stylesheet" href="../assets/style.css?t=615badd5">
     <script src="../assets/script.js?t=36f3d457"></script>
     <title>Docks - Iris</title>
     <meta name="viewport" content="width=device-width">
@@ -14,6 +14,16 @@
         <li class="menu-item -level-0 -parent">
           <ul class="submenu">
             <li class="menu-item -level-1"><a class="link title  link-index" href="../index.html">Iris</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Usage</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-usagegetting-started" href="../usage/getting-started.html">Getting Started</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-usagecli" href="../usage/cli.html">CLI</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-usagewriting-plugins" href="../usage/writing-plugins.html">Writing Plugins</a>
+                </li>
+              </ul>
             </li>
             <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
               <ul class="submenu">
@@ -113,7 +123,7 @@
 </code></pre>
 </li>
 <li>
-<p><strong>process(message, meta, callback)</strong> - Calls <code>validate()</code> and <code>parse()</code> and sends the result to the dispatcher. Should be called by <code>listen()</code>. The callback will be called with the response if the handler produces one.</p>
+<p><strong>process(message, meta, callback)</strong> - Calls <code>validate()</code> and <code>parse()</code> and sends the result to the dispatcher. <em>Should be called by <code>listen()</code></em>. The callback is optional and will be called with the response if the handler produces one.</p>
 </li>
 <li>
 <p><strong>encode(response)</strong> - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or <code>false</code> if the encoding was unsuccessful.</p>
@@ -160,9 +170,9 @@ dock.on(<span class="pl-s">&apos;data&apos;</span>, <span class="hljs-function">
 </ul>
 <h3 id="emits">Emits</h3>
 <ul>
-<li><strong>data</strong> - Triggered every time the dock receives a new message. Gives the handler access to the raw, unprocessed data. Useful to proxy it somewhere else.</li>
-<li><strong>response</strong> - When the dock receives a response from the dispatcher.</li>
-<li><strong>invalidMessage</strong> - Triggered when a message does not pass <code>validate()</code> filters, or when the message either is not a string, or does not have a <code>toString()</code> method.</li>
+<li><strong>data-<em>hookname</em></strong> - Triggered every time the dock receives a new message. Gives the handler access to the raw, unprocessed data. Useful to proxy it somewhere else.</li>
+<li><strong>response-<em>hookname</em></strong> - When the dock receives a response from the dispatcher.</li>
+<li><strong>invalidMessage-<em>hookname</em></strong> - Triggered when a message does not pass <code>validate()</code> filters, or when the message either is not a string, or does not have a <code>toString()</code> method.</li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <pre><code class="lang-javascript">{

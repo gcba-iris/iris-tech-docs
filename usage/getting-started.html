@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=615badd5">
+    <script src="../assets/script.js?t=36f3d457"></script>
+    <title>Getting Started - Iris</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a class="link title  link-index" href="../index.html">Iris</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Usage</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title -active link-usagegetting-started" href="../usage/getting-started.html">Getting Started</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a class="hlink link-1.-create-an-empty-project" href="#1.-create-an-empty-project">1. Create an empty project</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-existing-project" href="#existing-project">Existing project</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-2.-add-flows" href="#2.-add-flows">2. Add flows</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a class="hlink link-method-signature" href="#method-signature">Method signature</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a class="hlink link-sample-irisfile.js" href="#sample-irisfile.js">Sample irisfile.js</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a class="hlink link-3.-run-flows" href="#3.-run-flows">3. Run flows</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-usagecli" href="../usage/cli.html">CLI</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-usagewriting-plugins" href="../usage/writing-plugins.html">Writing Plugins</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-architectureoverview" href="../architecture/overview.html">Overview</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturedocks" href="../architecture/docks.html">Docks</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturedispatcher" href="../architecture/dispatcher.html">Dispatcher</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturehandlers" href="../architecture/handlers.html">Handlers</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturehooks" href="../architecture/hooks.html">Hooks</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-architecturecode" href="../architecture/code.html">Code</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div class="body page-usagegetting-started">
+        <div class="header-nav">
+          <div class="right">
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="getting-started">Getting Started</h1>
+<h2 id="1.-create-an-empty-project">1. Create an empty project</h2>
+<pre><code class="lang-bash">$ iris new myApp
+</code></pre>
+<p>Creates a new folder called <code>myApp</code> with the following contents:</p>
+<pre><code>myApp/
+|___modules/
+|   |___docks/
+|   |___handlers/
+|   |___hooks/
+|___irisfile.js
+|___package.json
+</code></pre>
+<p>Then runs <code>npm install</code>.</p>
+<h3 id="existing-project">Existing project</h3>
+<pre><code class="lang-bash">$ iris init
+</code></pre>
+<p>Creates an empty Irisfile and runs <code>npm install gcba-iris/iris --save</code>.</p>
+<h2 id="2.-add-flows">2. Add flows</h2>
+<p>The data flows are defined in the Irisfile, using <code>iris.flow()</code>.</p>
+<h3 id="method-signature">Method signature</h3>
+<pre><code class="lang-javascript">iris.flow(name, config);
+</code></pre>
+<ul>
+<li><strong>name</strong>: A string identifier.</li>
+<li><strong>config</strong>: An object containing:
+<ul>
+<li><strong>tag</strong>: A unique string.</li>
+<li><strong>docks</strong>: An array of dock instances.</li>
+<li><strong>handler</strong>: The handler instance.</li>
+<li><strong>inputHooks</strong> <em>(optional)</em>:  An array of hook instances.</li>
+<li><strong>outputHooks</strong> <em>(optional)</em>: An array of hook instances.</li>
+</ul>
+</li>
+</ul>
+<h3 id="sample-irisfile.js">Sample irisfile.js</h3>
+<pre><code class="lang-javascript"><span class="pl-k">const</span> iris = <span class="pl-c1">require</span>(<span class="pl-s">&apos;iris&apos;</span>);
+<span class="pl-k">const</span> dock = <span class="pl-c1">require</span>(<span class="pl-s">&apos;./docks/http&apos;</span>);
+<span class="pl-k">const</span> handler = <span class="pl-c1">require</span>(<span class="pl-s">&apos;./handlers/handler1&apos;</span>);
+<span class="pl-k">const</span> handler2 = <span class="pl-c1">require</span>(<span class="pl-s">&apos;./handlers/handler2&apos;</span>);
+<span class="pl-k">const</span> hook1 = <span class="pl-c1">require</span>(<span class="pl-s">&apos;./hooks/hook1&apos;</span>);
+<span class="pl-k">const</span> hook2 = <span class="pl-c1">require</span>(<span class="pl-s">&apos;./hooks/hook2&apos;</span>);
+
+iris.config = {
+    <span class="hljs-attr">threads</span>: <span class="hljs-number">4</span>,
+    <span class="hljs-attr">logLevel</span>: <span class="pl-s">&apos;warn&apos;</span>,
+};
+
+dock.config = {
+    <span class="hljs-attr">port</span>: <span class="hljs-number">5000</span>
+};
+
+iris.flow(<span class="pl-s">&apos;Flow 1&apos;</span>, {
+    <span class="hljs-attr">tag</span>: <span class="pl-s">&apos;tag1&apos;</span>,
+    <span class="hljs-attr">docks</span>: [dock],
+    <span class="hljs-attr">handler</span>: handler,
+    <span class="hljs-attr">inputHooks</span>: [hook1],
+    <span class="hljs-attr">outputHooks</span>: [hook2]
+});
+
+iris.flow(<span class="pl-s">&apos;Flow 2&apos;</span>, {
+    <span class="hljs-attr">tag</span>: <span class="pl-s">&apos;tag2&apos;</span>,
+    <span class="hljs-attr">docks</span>: [dock],
+    <span class="hljs-attr">handler</span>: handler2,
+    <span class="hljs-attr">inputHooks</span>: [hook2]
+});
+</code></pre>
+<p>The default amount of threads is the number of CPU cores.</p>
+<h2 id="3.-run-flows">3. Run flows</h2>
+<p>Inside a project directory:</p>
+<pre><code class="lang-bash">$ iris
+</code></pre>
+<p><img src="https://github.com/gcba-iris/iris/raw/master/assets/img/running.png" alt="Iris screenshot"></p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../index.html"><span class="title">Iris</span></a></div>
+          <div class="right"><a href="../usage/cli.html"><span class="label">Next: </span><span class="title">CLI</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
