@@ -5,7 +5,7 @@
 
 ## Description
 
-A hook is just a callback function that gets executed when the data comes in or out the [dispatcher](dispatcher.md) for a given data flow. Multiple hooks can be tied to a single data flow, which in turn is tied to a single tag. Each hook can be set to run when the data comes in (input hook) or when the response goes out (output hook).
+A hook is just a callback function that gets executed whenever a piece of data passes by the [dispatcher](dispatcher.md) in the course of a data flow. Multiple hooks can be tied to a single flow. Each hook can be set to run when the message object comes in (input hook) or when the response goes out (output hook).
 
 Hooks must extend the base Hook class.
 
@@ -30,13 +30,15 @@ The handler can generate and return a response. Hooks can run on the response as
 
 ### Getters that must be implemented
 
-- **path** *(string)* - Returns the path of the dock file.
-Example:
-```javascript
-    get path() {
-        return __filename;
-    }
-```
+- **path** *(string)* - Returns the path of the hook file.
+
+    ##### Sample implementation
+
+    ```javascript
+        get path() {
+            return __filename;
+        }
+    ```
 
 ### Getters present in the base class
 
@@ -49,6 +51,19 @@ Example:
 
 
 ## Events
+
+```javascript
+const hook = require('iris-hook-myAwesomeHook');
+
+hook.on('data', function(event){
+  console.log('data', event.data);
+});
+
+
+Every `event` object contains the following properties:
+
+- **target** - The hook that triggered the event.
+- **data** - A data object.
 
 ### Emits
 
