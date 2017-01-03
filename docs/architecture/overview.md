@@ -21,11 +21,11 @@ The tag is the first portion of the message sent by a device. A single data pack
 
 ##### Input flow
 
-Represents the path a piece of raw data takes from the device to a single handler. Input hooks are executed along the way.
+Represents the path a piece of raw data takes from the device to a single handler. Input hooks are executed in parallel.
 
 ##### Output flow
 
-The response making its way back to the original device. Output hooks are executed along the way. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.
+The response making its way back to the original device. Output hooks are executed in parallel. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.
 
 #### Components
 
