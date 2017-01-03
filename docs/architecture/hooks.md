@@ -58,7 +58,7 @@ const hook = require('iris-hook-myAwesomeHook');
 hook.on('data', function(event){
   console.log('data', event.data);
 });
-
+```
 
 Every `event` object contains the following properties:
 
