@@ -3,14 +3,14 @@
 
 ### Flow
 
-1. Data pours in from multiple sources through the [docks](docks.md). Each dock accounts for a single protocol, and listens to one port.
+1. Data pours in from multiple sources through the [docks](docks.md). Each dock accounts for a single protocol and listens to one port.
 2. The dock parses the data and converts it to a plain javascript object.
 3. The dock sends it to the [dispatcher](dispatcher.md).
 4. The dispatcher looks at the tag property and routes the data to the right [handler](handlers.md).
-5. As the data makes its way to the handler, the [input hooks](hooks.md) (read-only middlewares) can access it and do stuff with it. But they can't modify it.
-6. The handler process the data, persisting it, redirecting it, etc.
+5. The [input hooks](hooks.md) (read-only middlewares) can access the data and do stuff with it, but they can't modify it.
+6. The handler processes the data, persisting it, redirecting it, etc.
 7. If the handler generates a response, it goes to the dispatcher. If there's no response, the process ends here.
-8. The [output hooks](hooks.md) can get their hands on the response and do stuff with it, but without being able to modify it.
+8. The [output hooks](hooks.md) can get their hands on the response and do stuff with it, but they can't modify it.
 8. Then the dispatcher gets the response and routes it to the right dock.
 9. The dock sends it back to the original device.
 
@@ -25,7 +25,7 @@ Represents the path a piece of raw data takes from the device to a single handle
 
 ##### Output flow
 
-The response making its way back to the same device. Output hooks are executed along the way. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.
+The response making its way back to the original device. Output hooks are executed along the way. This flow is dependent on the existence of a response; if the handler generates no response, the input flow is all there is.
 
 #### Components
 
