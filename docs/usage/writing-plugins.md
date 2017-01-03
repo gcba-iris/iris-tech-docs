@@ -11,7 +11,7 @@ You must implement `get path()`, `listen()` and `stop()`. `send()` is optional.
 - **stop():** stops listening.
 - **send(response):** sends the response to the device.
 
-Take a look at the [base class](architecture/docks.md) for a list of the available methods and events, like `this.process()`.
+Take a look at the [base class](../architecture/docks.md) for a list of the available methods and events, like `this.process()`.
 
 ### Sample HTTP dock
 
@@ -88,7 +88,7 @@ You must implement `get path()` and `handle()`.
 - **get path():** returns the handler path in the filesystem.
 - **handle(data):** does with the data whatever the handler was meant to do.
 
-Take a look at the [base class](architecture/handlers.md) for a list of the available methods and events.
+Take a look at the [base class](../architecture/handlers.md) for a list of the available methods and events.
 
 ### Sample handler
 
@@ -123,7 +123,7 @@ You must implement `get path()` and `process()`.
 - **get path():** returns the hook path in the filesystem.
 - **process(data):** does with the data whatever the hook was meant to do.
 
-Take a look at the [base class](architecture/hooks.md) for a list of the available methods and events.
+Take a look at the [base class](../architecture/hooks.md) for a list of the available methods and events.
 
 ### Sample hook
 
