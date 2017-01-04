@@ -57,7 +57,7 @@ const hook2 = require('./hooks/hook2');
 
 iris.config = {
     threads: 4,
-    logLevel: 'warn',
+    logLevel: 'warn'
 };
 
 dock.config = {
