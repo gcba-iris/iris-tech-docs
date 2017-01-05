@@ -61,6 +61,15 @@ Docks must extend the base Dock class.
 
 - **process(message, meta, callback)** - Calls `validate()` and `parse()` and sends the result to the dispatcher. *Should be called by `listen()`*. The callback is optional and will be called with the response if the handler produces one.
 - **encode(response)** - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or `false` if the encoding was unsuccessful.
+
+    How it works:
+    - If the response is a string: will leave it alone.
+    - If the response is an array: will join it.
+    - If the response is a plain object: will try to use the values with the keys as subtags, following the default message format `|subtag1|value1,value2|subtag2|value3,value4,value5`.
+    - Otherwise, if the response has a toString() method: will call it and leave the output alone.
+
+    The separators can be configured, just like with the parser.
+
 - **reply(response)** - If `send()` if defined, calls `encode()` and pipes the result to `send()`.
 
 

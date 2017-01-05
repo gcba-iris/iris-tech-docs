@@ -19,7 +19,6 @@ myApp/
 ```
 Then runs `npm install`.
 
-
 ### Existing project
 
 ```bash
