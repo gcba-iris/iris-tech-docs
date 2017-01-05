@@ -127,6 +127,14 @@
 </li>
 <li>
 <p><strong>encode(response)</strong> - Serializes the response. This is a default implementation provided for convenience that can and should be overriden to suit your needs. Returns the encoded message or <code>false</code> if the encoding was unsuccessful.</p>
+<p>How it works:</p>
+<ul>
+<li>If the response is a string: will leave it alone.</li>
+<li>If the response is an array: will join it.</li>
+<li>If the response is a plain object: will try to use the values with the keys as subtags, following the default message format <code>|subtag1|value1,value2|subtag2|value3,value4,value5</code>.</li>
+<li>Otherwise, if the response has a toString() method: will call it and leave the output alone.</li>
+</ul>
+<p>The separators can be configured, just like with the parser.</p>
 </li>
 <li>
 <p><strong>reply(response)</strong> - If <code>send()</code> if defined, calls <code>encode()</code> and pipes the result to <code>send()</code>.</p>
