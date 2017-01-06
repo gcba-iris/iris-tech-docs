@@ -18,7 +18,7 @@ Take a look at the [base class](../architecture/docks.md) for a list of the avai
 ```javascript
 'use strict';
 
-const Dock = require('iris').Dock;
+const Dock = require('../../lib/bases/Dock');
 const http = require('http');
 const requestIp = require('request-ip');
 
@@ -40,7 +40,7 @@ class HTTPDock extends Dock {
         if (!this._listening) {
             this._server.listen(this.config.port, () => {
                 this._listening = true;
-                this.logger.info('[HTTP Dock] Listening on port ' + this.config.port + '...');
+                this.logger.info(`[HTTP Dock] Listening on port ${this.config.port}...`);
             });
         }
     }
@@ -71,8 +71,9 @@ class HTTPDock extends Dock {
 
                 if (message) {
                     response.write(message);
-                    this.logger.verbose('Sent response to client');
-                } else response.end();
+                    this.logger.verbose('[HTTP Dock] Sent response to client');
+                }
+                else response.end();
             });
         }.bind(this));
     }
