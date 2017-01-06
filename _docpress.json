@@ -78,6 +78,12 @@
             ]
           },
           {
+            "title": "Node Flags",
+            "source": "docs/usage/node-flags.md",
+            "url": "usage/node-flags.html",
+            "slug": "usagenode-flags"
+          },
+          {
             "title": "Writing Plugins",
             "source": "docs/usage/writing-plugins.md",
             "url": "usage/writing-plugins.html",
@@ -508,6 +514,12 @@
         }
       ]
     },
+    "usage/node-flags.html": {
+      "source": "docs/usage/node-flags.md",
+      "title": "Node Flags - Iris",
+      "pageTitle": "Node Flags",
+      "slug": "usagenode-flags"
+    },
     "usage/writing-plugins.html": {
       "source": "docs/usage/writing-plugins.md",
       "title": "Writing Plugins - Iris",
@@ -861,6 +873,7 @@
     "README.md": "index.html",
     "docs/usage/getting-started.md": "usage/getting-started.html",
     "docs/usage/cli.md": "usage/cli.html",
+    "docs/usage/node-flags.md": "usage/node-flags.html",
     "docs/usage/writing-plugins.md": "usage/writing-plugins.html",
     "docs/architecture/overview.md": "architecture/overview.html",
     "docs/architecture/docks.md": "architecture/docks.html",

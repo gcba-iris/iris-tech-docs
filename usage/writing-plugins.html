@@ -21,6 +21,8 @@
                 </li>
                 <li class="menu-item -level-2"><a class="link title  link-usagecli" href="../usage/cli.html">CLI</a>
                 </li>
+                <li class="menu-item -level-2"><a class="link title  link-usagenode-flags" href="../usage/node-flags.html">Node Flags</a>
+                </li>
                 <li class="menu-item -level-2"><a class="link title -active link-usagewriting-plugins" href="../usage/writing-plugins.html">Writing Plugins</a>
                   <ul class="headings heading-list">
                     <li class="heading-item -depth-2"><a class="hlink link-docks" href="#docks">Docks</a>
@@ -89,7 +91,7 @@
 <h3 id="sample-http-dock">Sample HTTP dock</h3>
 <pre><code class="lang-javascript"><span class="hljs-meta">&apos;use strict&apos;</span>;
 
-<span class="pl-k">const</span> Dock = <span class="pl-c1">require</span>(<span class="pl-s">&apos;iris&apos;</span>).Dock;
+<span class="pl-k">const</span> Dock = <span class="pl-c1">require</span>(<span class="pl-s">&apos;../../lib/bases/Dock&apos;</span>);
 <span class="pl-k">const</span> http = <span class="pl-c1">require</span>(<span class="pl-s">&apos;http&apos;</span>);
 <span class="pl-k">const</span> requestIp = <span class="pl-c1">require</span>(<span class="pl-s">&apos;request-ip&apos;</span>);
 
@@ -111,7 +113,7 @@
         <span class="pl-k">if</span> (!<span class="pl-k">this</span>._listening) {
             <span class="pl-k">this</span>._server.listen(<span class="pl-k">this</span>.config.port, () =&gt; {
                 <span class="pl-k">this</span>._listening = <span class="pl-c1">true</span>;
-                <span class="pl-k">this</span>.logger.info(<span class="pl-s">&apos;[HTTP Dock] Listening on port &apos;</span> + <span class="pl-k">this</span>.config.port + <span class="pl-s">&apos;...&apos;</span>);
+                <span class="pl-k">this</span>.logger.info(<span class="pl-s">`[HTTP Dock] Listening on port <span class="hljs-subst">${<span class="pl-k">this</span>.config.port}</span>...`</span>);
             });
         }
     }
@@ -142,8 +144,9 @@
 
                 <span class="pl-k">if</span> (message) {
                     response.write(message);
-                    <span class="pl-k">this</span>.logger.verbose(<span class="pl-s">&apos;Sent response to client&apos;</span>);
-                } <span class="pl-k">else</span> response.end();
+                    <span class="pl-k">this</span>.logger.verbose(<span class="pl-s">&apos;[HTTP Dock] Sent response to client&apos;</span>);
+                }
+                <span class="pl-k">else</span> response.end();
             });
         }.bind(<span class="pl-k">this</span>));
     }
@@ -220,7 +223,7 @@
 
         </div>
         <div class="footer-nav">
-          <div class="left"><a href="../usage/cli.html"><span class="title">CLI</span></a></div>
+          <div class="left"><a href="../usage/node-flags.html"><span class="title">Node Flags</span></a></div>
           <div class="right"><a href="../architecture/overview.html"><span class="label">Next: </span><span class="title">Overview</span></a></div>
         </div>
       </div>

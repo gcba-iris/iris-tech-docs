@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/style.css?t=615badd5">
     <script src="../assets/script.js?t=36f3d457"></script>
-    <title>CLI - Iris</title>
+    <title>Node Flags - Iris</title>
     <meta name="viewport" content="width=device-width">
   </head>
   <body class="-menu-visible">
@@ -19,13 +19,9 @@
               <ul class="submenu">
                 <li class="menu-item -level-2"><a class="link title  link-usagegetting-started" href="../usage/getting-started.html">Getting Started</a>
                 </li>
-                <li class="menu-item -level-2"><a class="link title -active link-usagecli" href="../usage/cli.html">CLI</a>
-                  <ul class="headings heading-list">
-                    <li class="heading-item -depth-2"><a class="hlink link-commands" href="#commands">Commands</a>
-                    </li>
-                  </ul>
+                <li class="menu-item -level-2"><a class="link title  link-usagecli" href="../usage/cli.html">CLI</a>
                 </li>
-                <li class="menu-item -level-2"><a class="link title  link-usagenode-flags" href="../usage/node-flags.html">Node Flags</a>
+                <li class="menu-item -level-2"><a class="link title -active link-usagenode-flags" href="../usage/node-flags.html">Node Flags</a>
                 </li>
                 <li class="menu-item -level-2"><a class="link title  link-usagewriting-plugins" href="../usage/writing-plugins.html">Writing Plugins</a>
                 </li>
@@ -50,48 +46,23 @@
           </ul>
         </li>
       </div>
-      <div class="body page-usagecli">
+      <div class="body page-usagenode-flags">
         <div class="header-nav">
           <div class="right">
           </div>
         </div>
-        <div class="markdown-body"><h1 id="cli">CLI</h1>
-<pre><code>          _          _            _         _
-         /\ \       /\ \         /\ \      / /\
-         \ \ \     /  \ \        \ \ \    / /  \
-         /\ \_\   / /\ \ \       /\ \_\  / / /\ \__
-        / /\/_/  / / /\ \_\     / /\/_/ / / /\ \___\
-       / / /    / / /_/ / /    / / /    \ \ \ \/___/
-      / / /    / / /__\/ /    / / /      \ \ \
-     / / /    / / /_____/    / / /   _    \ \ \
- ___/ / /__  / / /\ \ \  ___/ / /__ /_/\__/ / /
-/\__\/_/___\/ / /  \ \ \/\__\/_/___\\ \/___/ /
-\/_________/\/_/    \_\/\/_________/ \_____\/
-
-
-Usage: iris [command]
-</code></pre>
-<h2 id="commands">Commands</h2>
-<pre><code>    iris
-        Runs Iris in the current directory.
-
-    iris new [project-name]
-        Creates a new empty Iris project at the directory [project-name].
-
-    iris init
-        Creates an empty Irisfile and installs Iris locally.
-
-    iris --version
-        Displays Iris&apos;s version.
-
-    iris --help
-        Displays the list of available commands.
-</code></pre>
+        <div class="markdown-body"><h1 id="node-flags">Node Flags</h1>
+<p>You can set custom values for the following flags via environment variables:</p>
+<ul>
+<li><code>--stack-size</code>: use a variable called <strong>STACK_SIZE</strong>. The default value is <code>8192</code>.</li>
+<li><code>--max-old-space-size</code>: use a variable called <strong>MAX_OLD_SPACE_SIZE</strong>. The default value is <code>8192</code>.</li>
+<li><code>--max-new-space-size</code>: use a variable called <strong>MAX_NEW_SPACE_SIZE</strong>. The default value is <code>2048</code>.</li>
+</ul>
 
         </div>
         <div class="footer-nav">
-          <div class="left"><a href="../usage/getting-started.html"><span class="title">Getting Started</span></a></div>
-          <div class="right"><a href="../usage/node-flags.html"><span class="label">Next: </span><span class="title">Node Flags</span></a></div>
+          <div class="left"><a href="../usage/cli.html"><span class="title">CLI</span></a></div>
+          <div class="right"><a href="../usage/writing-plugins.html"><span class="label">Next: </span><span class="title">Writing Plugins</span></a></div>
         </div>
       </div>
     </div>
